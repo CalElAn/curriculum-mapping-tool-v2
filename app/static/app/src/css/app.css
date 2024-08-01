@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .base-card {
+        @apply rounded-2xl bg-white shadow;
+    }
+
+    .input {
+        @apply rounded-md border-gray-300 placeholder:text-sm read-only:bg-slate-100 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 xl:placeholder:text-base;
+    }
+
+    .input-checkbox {
+        @apply rounded border-gray-300 text-blue-400 focus:ring-blue-200;
+    }
+
+    .label {
+        @apply font-semibold tracking-wide;
+    }
+
+    .select {
+        @apply rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:bg-slate-100;
+    }
+
+    .form-title {
+        @apply text-xl font-semibold tracking-wide text-gray-900 md:text-2xl;
+    }
+
+    .subform {
+        @apply border border-gray-100 odd:bg-gray-100 even:bg-white;
+    }
+
+    .subform-form {
+        @apply grid grid-cols-1 gap-y-3 p-2 sm:gap-y-4;
+    }
+
+    .subform-title {
+        @apply font-medium tracking-wide text-neutral-600 underline underline-offset-2;
+    }
+
+    .form-title-div {
+        @apply flex flex-col gap-2 sm:flex-row sm:justify-between sm:gap-0;
+    }
+
+    .subform-ring {
+        @apply border border-red-400 ring-4 ring-red-200 ring-opacity-50;
+    }
+
+    /*.viewing-subform-container {
+        @apply mb-6 ml-4 border-l border-gray-500 p-4;
+    }*/
+
+    .viewing-subform-container {
+        @apply -mt-6 mb-6 ml-4 border-l border-gray-500 pl-4 pt-6;
+    }
+}

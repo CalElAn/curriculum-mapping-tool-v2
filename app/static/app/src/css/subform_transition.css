@@ -1,0 +1,20 @@
+.list-move, /* apply transition to moving elements */
+.list-enter-active {
+  transition: all 0.5s ease;
+}
+.list-leave-active {
+  transition-duration: 0s;
+}
+
+.list-enter-from {
+  transform: translateY(-10px);
+}
+.list-leave-to {
+  transition-duration: 0s;
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
+}
