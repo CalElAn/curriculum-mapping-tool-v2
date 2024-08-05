@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "preserve",
+        "strict": true,
+        "isolatedModules": true,
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@/*": ["./static/app/src/js/*"],
+        }
+    },
+    "include": ["static/app/src/js/**/*.ts", "static/app/src/js/**/*.d.ts", "static/app/src/js/**/*.vue"]
+}

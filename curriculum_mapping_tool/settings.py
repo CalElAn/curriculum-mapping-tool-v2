@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import environ, os
 
+from app.helpers import NeomodelAwareJsonEncoder
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_vite',
     'inertia',
-    'app'
+    'django_neomodel',
+    'app',
+    'js_routes',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.middleware.inertia_share',
+    'app.middleware.set_request_body_json',
+    'app.middleware.HandleInertiaValidationErrors',
 ]
 
 ROOT_URLCONF = 'curriculum_mapping_tool.urls'
@@ -80,9 +87,17 @@ WSGI_APPLICATION = 'curriculum_mapping_tool.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_DATABASE'),
+        "USER": env('DB_USER'),
+        "PASSWORD": env('DB_PASSWORD'),
+        "HOST": "mysql",
+        "PORT": "3306",
     }
 }
 
@@ -118,17 +133,24 @@ USE_I18N = True
 USE_TZ = True
 
 
+JS_ROUTES_INCLUSION_LIST = [
+    'app',
+]
+
+
+NEOMODEL_NEO4J_BOLT_URL = env('NEOMODEL_NEO4J_BOLT_URL')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [BASE_DIR / "app" / "static" / "dist",]
+STATICFILES_DIRS = [BASE_DIR / "app" / "static" / "app" / "dist",]
 
 
 # inertia
 INERTIA_LAYOUT = "app/app.html"
-
+INERTIA_JSON_ENCODER = NeomodelAwareJsonEncoder
 
 # django_vite
 DJANGO_VITE = {

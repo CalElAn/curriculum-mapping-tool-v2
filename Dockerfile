@@ -1,4 +1,4 @@
-FROM python:3 as python
+FROM python:3.10 as python
 
 ENV PYTHONUNBUFFERED=1
 

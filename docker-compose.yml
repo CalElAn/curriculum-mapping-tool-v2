@@ -12,18 +12,26 @@ services:
       - .:/usr/src/app
     networks:
       - cmt-v2
+      - curriculum-mapping-tool_sail
     working_dir: /usr/src/app
     command: python manage.py runserver 0.0.0.0:8000
+
+  blackd:
+    restart: always
+    image: docker.io/pyfound/black
+    command: blackd --bind-host 0.0.0.0 --bind-port 45484
+    ports:
+      - "45484:45484"
 
   mysql:
     container_name: mysql
     image: mysql:8.0
     ports:
-      - 3320:3306
+      - 3330:3306
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_DATABASE: '${DB_DATABASE}'
-      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_USER: '${DB_USER}'
       MYSQL_PASSWORD: '${DB_PASSWORD}'
     volumes:
       - cmt-v2-mysql:/var/lib/mysql
@@ -55,6 +63,9 @@ services:
 networks:
   cmt-v2:
     driver: bridge
+  #use own neo4j container later and remove this
+  curriculum-mapping-tool_sail:
+    external: true
 
 volumes:
   cmt-v2-mysql:

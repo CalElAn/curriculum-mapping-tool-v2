@@ -31,7 +31,7 @@ export default defineConfig((mode) => {
       emptyOutDir: true,
       rollupOptions: {
         input: {
-          app: join(INPUT_DIR, "/app/src/js/app.js"),
+          app: join(INPUT_DIR, "/app/src/js/app.ts"),
         },
       },
     },
