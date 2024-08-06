@@ -2,6 +2,7 @@ import json
 from pprint import pprint
 
 from django.core.exceptions import ValidationError
+from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.urls import resolve
 from inertia import share
@@ -67,6 +68,33 @@ def login_required_middleware(get_response):
             and not request.user.is_authenticated
         ):
             return redirect("login")
+
+        return get_response(request)
+
+    return middleware
+
+
+def superuser_required_middleware(get_response):
+    def middleware(request):
+        # url names should be in the format of e.g courses.list
+        protected_url_name_prefixes = ["courses"]
+        protected_url_name_suffixes = ["store", "update", "destroy"]
+
+        request_url_name = resolve(request.path_info).url_name.split(".")
+
+        if (
+            request_url_name[0] in protected_url_name_prefixes
+            and request_url_name[1] in protected_url_name_suffixes
+        ):
+            if request.user.is_superuser:
+                return get_response(request)
+
+            return JsonResponse(
+                {
+                    "message": "This action can only be performed by an admin",
+                },
+                status=403,
+            )
 
         return get_response(request)
 

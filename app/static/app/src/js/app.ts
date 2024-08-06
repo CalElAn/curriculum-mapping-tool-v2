@@ -1,14 +1,14 @@
-import './bootstrap';
+import "./bootstrap";
 import "../css/app.css";
 import "flowbite";
-import 'floating-vue/dist/style.css'
+import "floating-vue/dist/style.css";
 
 import { createApp, h } from "vue";
 import { createInertiaApp, router } from "@inertiajs/vue3";
 import "vite/modulepreload-polyfill";
-import FloatingVue from 'floating-vue'
+import FloatingVue from "floating-vue";
 
-import Layout from './Layouts/Layout.vue';
+import Layout from "./Layouts/Layout.vue";
 
 const appName = import.meta.env.VITE_APP_NAME || "Curriculum Mapping Tool";
 
@@ -28,11 +28,10 @@ createInertiaApp({
     return page;
   },
   setup({ el, App, props, plugin }) {
-    const app = createApp({ render: () => h(App, props) }).use(plugin)
-    .use(FloatingVue)
-    // .use(ZiggyVue);
+    const app = createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .use(FloatingVue);
 
-    // app.config.globalProperties.route = route; // not using the ZiggyVue plugin because deploying it in the GitHub action will be a bit problematic (I will have to install php and do a composer install)
     app.mount(el);
   },
   progress: {
