@@ -82,7 +82,7 @@ const props = defineProps<{
 const viewing = ref(false);
 const showLoadingSpinner = ref(false);
 
-const formData = {
+const useFormData = {
   uid: props.course.uid,
   number: props.course.number,
   title: props.course.title,
@@ -92,7 +92,7 @@ const emit = defineEmits(emittedEvents);
 
 const { uid, form, adding, editing, store, update, destroy } = useSubformHelpers(
   props.course,
-  formData,
+  useFormData,
   emit,
   window.reverseUrl("app:courses.store"),
   "app:courses.update",

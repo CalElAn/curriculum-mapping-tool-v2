@@ -6,6 +6,10 @@ from django.shortcuts import redirect
 from inertia import share
 
 
+def is_inertia_request(request) -> bool:
+    return request.META.get("HTTP_X_INERTIA") == "true"
+
+
 def inertia_share(get_response):
     def middleware(request):
         share(
@@ -34,10 +38,7 @@ class HandleInertiaValidationErrors:
         return response
 
     def process_exception(self, request, exception):
-        if (
-            isinstance(exception, ValidationError)
-            and request.META.get("HTTP_X_INERTIA") == "true"
-        ):
+        if isinstance(exception, ValidationError) and is_inertia_request(request):
             request.session["errors"] = exception.message_dict
 
             return redirect(request.META.get("HTTP_REFERER"))
@@ -48,7 +49,9 @@ class HandleInertiaValidationErrors:
 def set_request_body_json(get_response):
     def middleware(request):
         request.body_json = (
-            json.loads(request.body.decode("utf-8")) if request.body else {}
+            json.loads(request.body.decode("utf-8"))
+            if is_inertia_request(request) and request.body
+            else {}
         )
 
         return get_response(request)
