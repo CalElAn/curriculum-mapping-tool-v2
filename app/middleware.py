@@ -3,6 +3,7 @@ from pprint import pprint
 
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
+from django.urls import resolve
 from inertia import share
 
 
@@ -53,6 +54,19 @@ def set_request_body_json(get_response):
             if is_inertia_request(request) and request.body
             else {}
         )
+
+        return get_response(request)
+
+    return middleware
+
+
+def login_required_middleware(get_response):
+    def middleware(request):
+        if (
+            resolve(request.path_info).app_name == "app"
+            and not request.user.is_authenticated
+        ):
+            return redirect("login")
 
         return get_response(request)
 

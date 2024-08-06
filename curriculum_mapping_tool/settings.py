@@ -61,6 +61,7 @@ MIDDLEWARE = [
     "app.middleware.inertia_share",
     "app.middleware.set_request_body_json",
     "app.middleware.HandleInertiaValidationErrors",
+    "app.middleware.login_required_middleware",
 ]
 
 ROOT_URLCONF = "curriculum_mapping_tool.urls"
