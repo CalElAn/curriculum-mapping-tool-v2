@@ -8,7 +8,7 @@ from neomodel import (
     DateTimeNeo4jFormatProperty,
     IntegerProperty,
     RelationshipTo,
-    StructuredRel,
+    StructuredRel as NeoModelStructuredRel,
     ZeroOrMore,
     OneOrMore,
     ZeroOrOne,
@@ -32,6 +32,11 @@ class StructuredNode(NeoModelStructuredNode):
         self.updated_at = datetime.now()
         super().save()
 
+
+class StructuredRel(NeoModelStructuredRel):
+    def save(self):
+        self.updated_at = datetime.now()
+        super().save()
 
 class Teaches(StructuredRel):
     __label__ = "TEACHES"
