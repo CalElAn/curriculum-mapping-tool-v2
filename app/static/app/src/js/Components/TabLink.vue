@@ -12,7 +12,7 @@
   </Link>
 </template>
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
   title: String,
@@ -20,8 +20,8 @@ const props = defineProps({
 });
 
 const routeUrl = {
-  Courses: reverseUrl('app:courses.list'),
-  Topics: "route('topics.list')",
-  'Knowledge Areas': "route('knowledge_areas.list')",
+  Courses: reverseUrl("app:courses.list"),
+  Topics: reverseUrl("app:topics.list"),
+  "Knowledge Areas": reverseUrl("app:knowledge_areas.list"),
 }[props.title];
 </script>

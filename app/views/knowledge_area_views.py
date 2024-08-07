@@ -21,27 +21,34 @@ from app.helpers import (
     get_page_obj_props,
     validate_unique_node_attribute,
 )
-from app.models import Topic, Course, relationship_levels, Teaches
+from app.models import (
+    Topic,
+    Course,
+    relationship_levels,
+    Teaches,
+    KnowledgeArea,
+    Covers,
+)
 
 
-@inertia("Course/Form")
+@inertia("KnowledgeArea/Form")
 @require_GET
-def courses_list(request):
+def knowledge_areas_list(request):
     request_filter = request.GET.get("filter", "")
 
-    courses = Course.nodes.order_by("number").all()
+    knowledge_areas = (
+        KnowledgeArea.nodes.filter(
+            Q(title__icontains=request_filter)
+            | Q(description__icontains=request_filter)
+        )
+        .order_by("title")
+        .all()
+    )
 
-    filtered_courses = []
-    for course in courses:
-        if (request_filter.lower() in course.title.lower()) or str(
-            request_filter
-        ) in str(course.number):
-            filtered_courses.append(course)
-
-    paginator, page_obj = paginate(filtered_courses, request.GET.get("page", 1))
+    paginator, page_obj = paginate(knowledge_areas, request.GET.get("page", 1))
 
     return {
-        "initialCourses": page_obj.object_list,
+        "initialKnowledgeAreas": page_obj.object_list,
         "pageObj": get_page_obj_props(page_obj, paginator),
         "allTopics": Topic.nodes.order_by("name").all(),
         "levels": list(relationship_levels.values()),
@@ -50,10 +57,16 @@ def courses_list(request):
 
 
 @require_GET
-def get_topics(request, course_uid):
+def get_topics(request, knowledge_area_uid):
     return JsonResponse(
         get_nodes_with_relationships(
-            Course, Teaches, Topic, Course, course_uid, "name", Topic
+            Topic,
+            Covers,
+            KnowledgeArea,
+            KnowledgeArea,
+            knowledge_area_uid,
+            "name",
+            Topic,
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,
@@ -65,48 +78,48 @@ def store(request):
     validation_results = validate(
         request,
         {
-            "number": "required|integer",
             "title": "required",
+            "description": "required",
         },
     )
 
-    validate_unique_node_attribute(Course, "number", request.body_json["number"])
+    validate_unique_node_attribute(KnowledgeArea, "title", request.body_json["title"])
 
-    course = Course(
+    knowledge_area = KnowledgeArea(
         **{key: request.body_json[key] for key in validation_results}
     ).save()
 
-    request.session["data"] = {"uid": course.uid}
+    request.session["data"] = {"uid": knowledge_area.uid}
 
     return redirect_back(request)
 
 
 @require_POST
-def update(request, course_uid):
+def update(request, knowledge_area_uid):
     validation_results = validate(
         request,
         {
-            "number": "required|integer",
             "title": "required",
+            "description": "required",
         },
     )
 
-    course = Course.nodes.get(uid=course_uid)
+    knowledge_area = KnowledgeArea.nodes.get(uid=knowledge_area_uid)
 
     validate_unique_node_attribute(
-        Course, "number", request.body_json["number"], course
+        KnowledgeArea, "title", request.body_json["title"], knowledge_area
     )
 
     for key in validation_results:
-        setattr(course, key, request.body_json[key])
+        setattr(knowledge_area, key, request.body_json[key])
 
-    course.save()
+    knowledge_area.save()
 
     return redirect_back(request)
 
 
 @require_POST
-def destroy(request, course_uid):
-    Course.nodes.get(uid=course_uid).delete()
+def destroy(request, knowledge_area_uid):
+    KnowledgeArea.nodes.get(uid=knowledge_area_uid).delete()
 
     return redirect_back(request)

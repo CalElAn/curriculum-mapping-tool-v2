@@ -75,15 +75,17 @@ onMounted(() => initFlowbite());
         {{ relationshipLevel }}
       </option>
     </select>
-    <label class="label mt-4 block">Tools</label>
-    <textarea
-      rows="2"
-      placeholder="tools"
-      class="input mt-1 w-full"
-      type="text"
-      v-model="tools"
-    >
-    </textarea>
+    <template v-if="showTools"
+      ><label class="label mt-4 block">Tools</label>
+      <textarea
+        rows="2"
+        placeholder="tools"
+        class="input mt-1 w-full"
+        type="text"
+        v-model="tools"
+      >
+      </textarea>
+    </template>
     <label class="label mt-4 block">Comments</label>
     <textarea
       rows="2"

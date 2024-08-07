@@ -9,7 +9,7 @@ from app.cypher_queries import (
     delete_relationship,
 )
 from app.helpers import validate, redirect_back
-from app.models import Course, Topic, Teaches
+from app.models import Course, Topic, Teaches, KnowledgeArea, Covers
 
 
 @require_POST
@@ -17,28 +17,31 @@ def store(request):
     validate(
         request,
         {
-            "course_uid": "required",
             "topic_uid": "required",
+            "knowledge_area_uid": "required",
             "level": "required",
         },
     )
 
-    courses_teaches_topics = get_nodes_with_relationships(Course, Teaches, Topic)
+    knowledge_areas_covers_topics = get_nodes_with_relationships(
+        Topic, Covers, KnowledgeArea
+    )
 
-    request_course_uid = request.body_json["course_uid"]
+    request_knowledge_area_uid = request.body_json["knowledge_area_uid"]
     request_topic_uid = request.body_json["topic_uid"]
 
     if list(
         filter(
-            lambda item: getattr(item["Course"], "uid") == request_course_uid
+            lambda item: getattr(item["KnowledgeArea"], "uid")
+            == request_knowledge_area_uid
             and getattr(item["Topic"], "uid") == request_topic_uid,
-            courses_teaches_topics,
+            knowledge_areas_covers_topics,
         )
     ):
         raise ValidationError({"relationship": "Must be unique."})
 
-    teaches = Course.nodes.get(uid=request_course_uid).teaches.connect(
-        Topic.nodes.get(uid=request_topic_uid),
+    covers = Topic.nodes.get(uid=request_topic_uid).covers.connect(
+        KnowledgeArea.nodes.get(uid=request_knowledge_area_uid),
         {
             "level": request.body_json["level"],
             "tools": request.body_json["tools"],
@@ -46,15 +49,15 @@ def store(request):
         },
     )
 
-    teaches.save()
+    covers.save()
 
-    request.session["data"] = {"uid": teaches.uid}
+    request.session["data"] = {"uid": covers.uid}
 
     return redirect_back(request)
 
 
 @require_POST
-def update(request, teaches_uid):
+def update(request, covers_uid):
     validate(
         request,
         {
@@ -62,19 +65,19 @@ def update(request, teaches_uid):
         },
     )
 
-    teaches = get_relationship(Teaches, teaches_uid)
+    covers = get_relationship(Covers, covers_uid)
 
-    teaches.level = request.body_json["level"]
-    teaches.tools = request.body_json["tools"]
-    teaches.comments = request.body_json["comments"]
+    covers.level = request.body_json["level"]
+    covers.tools = request.body_json["tools"]
+    covers.comments = request.body_json["comments"]
 
-    teaches.save()
+    covers.save()
 
     return redirect_back(request)
 
 
 @require_POST
-def destroy(request, teaches_uid):
-    delete_relationship(Teaches, teaches_uid)
+def destroy(request, covers_uid):
+    delete_relationship(Covers, covers_uid)
 
     return redirect_back(request)

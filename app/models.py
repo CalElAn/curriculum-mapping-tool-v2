@@ -84,7 +84,7 @@ class Topic(StructuredNode):
     uid = StringProperty(unique_index=True, default=uuid4)
     name = StringProperty(unique_index=True)
     covers = RelationshipTo(
-        "KnowledgeArea", "COVERS", cardinality=ZeroOrOne, model=Covers
+        "KnowledgeArea", "COVERS", cardinality=ZeroOrMore, model=Covers
     )
     created_at = DateTimeNeo4jFormatProperty(default_now=True)
     updated_at = DateTimeNeo4jFormatProperty(default_now=True)
