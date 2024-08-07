@@ -54,3 +54,25 @@ def get_nodes_with_relationships(
         )
 
     return results
+
+
+def get_relationship(
+    relationship: Type[StructuredRel], uid: str
+) -> Type[StructuredRel]:
+    cypher_query = f"""
+        MATCH ()-[r:{relationship.__label__}{{ uid: "{uid}" }}]->()
+        RETURN r    
+        """
+
+    query_results, cols = db.cypher_query(cypher_query)
+
+    return relationship.inflate(query_results[0][0])
+
+
+def delete_relationship(relationship: Type[StructuredRel], uid: str):
+    cypher_query = f"""
+        MATCH ()-[r:{relationship.__label__}{{ uid: "{uid}" }}]->()
+        DELETE r    
+        """
+
+    db.cypher_query(cypher_query)

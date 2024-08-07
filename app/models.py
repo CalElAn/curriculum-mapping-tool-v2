@@ -1,8 +1,9 @@
+from datetime import datetime
 from uuid import uuid4
 
 from django.db import models
 from neomodel import (
-    StructuredNode,
+    StructuredNode as NeoModelStructuredNode,
     StringProperty,
     DateTimeNeo4jFormatProperty,
     IntegerProperty,
@@ -21,29 +22,41 @@ relationship_levels = {
 
 
 # Always define a __labels__ property for relationships
+# Always define created_at and updated_at properties for nodes and relationships
+
+
+class StructuredNode(NeoModelStructuredNode):
+    __abstract_node__ = True
+
+    def save(self):
+        self.updated_at = datetime.now()
+        super().save()
 
 
 class Teaches(StructuredRel):
     __label__ = "TEACHES"
     uid = StringProperty(unique_index=True, default=uuid4)
     level = StringProperty(required=True, choices=relationship_levels)
+    tools = StringProperty()
     comments = StringProperty()
-    created_at = DateTimeNeo4jFormatProperty()
-    updated_at = DateTimeNeo4jFormatProperty()
+    created_at = DateTimeNeo4jFormatProperty(default_now=True)
+    updated_at = DateTimeNeo4jFormatProperty(default_now=True)
 
 
 class IsPrerequisiteOf(StructuredRel):
     __label__ = "IS_PREREQUISITE_OF"
     uid = StringProperty(unique_index=True, default=uuid4)
-
+    created_at = DateTimeNeo4jFormatProperty(default_now=True)
+    updated_at = DateTimeNeo4jFormatProperty(default_now=True)
 
 class Covers(StructuredRel):
     __label__ = "COVERS"
     uid = StringProperty(unique_index=True, default=uuid4)
     level = StringProperty(required=True, choices=relationship_levels)
+    tools = StringProperty()
     comments = StringProperty()
-    created_at = DateTimeNeo4jFormatProperty()
-    updated_at = DateTimeNeo4jFormatProperty()
+    created_at = DateTimeNeo4jFormatProperty(default_now=True)
+    updated_at = DateTimeNeo4jFormatProperty(default_now=True)
 
 
 class Course(StructuredNode):
@@ -68,13 +81,13 @@ class Topic(StructuredNode):
     covers = RelationshipTo(
         "KnowledgeArea", "COVERS", cardinality=ZeroOrOne, model=Covers
     )
-    created_at = DateTimeNeo4jFormatProperty()
-    updated_at = DateTimeNeo4jFormatProperty()
+    created_at = DateTimeNeo4jFormatProperty(default_now=True)
+    updated_at = DateTimeNeo4jFormatProperty(default_now=True)
 
 
 class KnowledgeArea(StructuredNode):
     uid = StringProperty(unique_index=True, default=uuid4)
     title = StringProperty()
     description = StringProperty()
-    created_at = DateTimeNeo4jFormatProperty()
-    updated_at = DateTimeNeo4jFormatProperty()
+    created_at = DateTimeNeo4jFormatProperty(default_now=True)
+    updated_at = DateTimeNeo4jFormatProperty(default_now=True)

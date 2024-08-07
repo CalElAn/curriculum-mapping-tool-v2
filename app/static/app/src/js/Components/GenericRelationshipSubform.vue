@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import PillDiv from '@/Components/PillDiv.vue';
-import AllSubformButtons from '@/Components/AllSubformButtons.vue';
-import { EllipsisVerticalIcon } from '@heroicons/vue/20/solid';
-import FormValidationErrors from '@/Components/FormValidationErrors.vue';
-import { computed, inject, onMounted, watch } from 'vue';
-import { initFlowbite } from 'flowbite';
+import PillDiv from "@/Components/PillDiv.vue";
+import AllSubformButtons from "@/Components/AllSubformButtons.vue";
+import { EllipsisVerticalIcon } from "@heroicons/vue/20/solid";
+import FormValidationErrors from "@/Components/FormValidationErrors.vue";
+import { computed, inject, onMounted, watch } from "vue";
+import { initFlowbite } from "flowbite";
 
 const props = defineProps({
   editing: Boolean,
@@ -19,20 +19,20 @@ const props = defineProps({
 });
 
 defineEmits([
-  'formSubmit',
-  'cancelAdd',
-  'save',
-  'delete',
-  'cancelEditing',
-  'edit',
-  'toggleViewing',
+  "formSubmit",
+  "cancelAdd",
+  "save",
+  "delete",
+  "cancelEditing",
+  "edit",
+  "toggleViewing",
 ]);
 
-const level = defineModel('level');
-const tools = defineModel('tools');
-const comments = defineModel('comments');
+const level = defineModel("level");
+const tools = defineModel("tools");
+const comments = defineModel("comments");
 
-const levels: Array<string> = inject('levels');
+const levels: Array<string> = inject("levels");
 
 const tooltipContent = computed(() => {
   if (props.showTools) {
@@ -49,7 +49,7 @@ const random = Math.round(Math.random() * 10000);
 watch(
   () => props.adding,
   () => initFlowbite(),
-  { flush: 'post' },
+  { flush: "post" },
 );
 
 onMounted(() => initFlowbite());
@@ -75,17 +75,15 @@ onMounted(() => initFlowbite());
         {{ relationshipLevel }}
       </option>
     </select>
-    <template>
-      <label class="label mt-4 block">Tools</label>
-      <textarea
-        rows="2"
-        placeholder="tools"
-        class="input mt-1 w-full"
-        type="text"
-        v-model="tools"
-      >
-      </textarea>
-    </template>
+    <label class="label mt-4 block">Tools</label>
+    <textarea
+      rows="2"
+      placeholder="tools"
+      class="input mt-1 w-full"
+      type="text"
+      v-model="tools"
+    >
+    </textarea>
     <label class="label mt-4 block">Comments</label>
     <textarea
       rows="2"

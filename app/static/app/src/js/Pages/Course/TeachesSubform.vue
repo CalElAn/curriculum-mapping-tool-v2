@@ -19,7 +19,7 @@
     <select
       :disabled="editing"
       required
-      v-model="form.topic_id"
+      v-model="form.topic_uid"
       class="select mt-1 w-full"
     >
       <option value="" selected disabled>- select topic -</option>
@@ -57,9 +57,9 @@ const { form, adding, editing, store, update, destroy, uid } = useSubformHelpers
   props.teachesData.TEACHES,
   useFormData,
   emit,
-  route('teaches.store'),
-  'teaches.update',
-  'teaches.destroy',
+  reverseUrl('app:teaches.store'),
+  'app:teaches.update',
+  'app:teaches.destroy',
 );
 
 const topicName = computed(
