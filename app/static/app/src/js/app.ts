@@ -32,6 +32,8 @@ createInertiaApp({
       .use(plugin)
       .use(FloatingVue);
 
+    app.config.globalProperties.reverseUrl = window.reverseUrl;
+
     app.mount(el);
   },
   progress: {

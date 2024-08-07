@@ -22,7 +22,8 @@ relationship_levels = {
 
 # Always define a __labels__ property for relationships
 
-class TeachesRel(StructuredRel):
+
+class Teaches(StructuredRel):
     __label__ = "TEACHES"
     uid = StringProperty(unique_index=True, default=uuid4)
     level = StringProperty(required=True, choices=relationship_levels)
@@ -31,12 +32,12 @@ class TeachesRel(StructuredRel):
     updated_at = DateTimeNeo4jFormatProperty()
 
 
-class IsPrerequisiteOfRel(StructuredRel):
+class IsPrerequisiteOf(StructuredRel):
     __label__ = "IS_PREREQUISITE_OF"
     uid = StringProperty(unique_index=True, default=uuid4)
 
 
-class CoversRel(StructuredRel):
+class Covers(StructuredRel):
     __label__ = "COVERS"
     uid = StringProperty(unique_index=True, default=uuid4)
     level = StringProperty(required=True, choices=relationship_levels)
@@ -50,14 +51,12 @@ class Course(StructuredNode):
     number = IntegerProperty()
     title = StringProperty()
     code = StringProperty()
-    teaches = RelationshipTo(
-        "Topic", "TEACHES", cardinality=ZeroOrMore, model=TeachesRel
-    )
+    teaches = RelationshipTo("Topic", "TEACHES", cardinality=ZeroOrMore, model=Teaches)
     is_prerequisite_of = RelationshipTo(
         "Course",
         "IS_PREREQUISITE_OF",
         cardinality=ZeroOrMore,
-        model=IsPrerequisiteOfRel,
+        model=IsPrerequisiteOf,
     )
     created_at = DateTimeNeo4jFormatProperty(default_now=True)
     updated_at = DateTimeNeo4jFormatProperty(default_now=True)
@@ -67,7 +66,7 @@ class Topic(StructuredNode):
     uid = StringProperty(unique_index=True, default=uuid4)
     name = StringProperty(unique_index=True)
     covers = RelationshipTo(
-        "KnowledgeArea", "COVERS", cardinality=ZeroOrOne, model=CoversRel
+        "KnowledgeArea", "COVERS", cardinality=ZeroOrOne, model=Covers
     )
     created_at = DateTimeNeo4jFormatProperty()
     updated_at = DateTimeNeo4jFormatProperty()

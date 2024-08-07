@@ -51,11 +51,11 @@ import TabLink from '@/Components/TabLink.vue';
         <li>
           <Link
             :class="[
-              $page.url.startsWith('/data-entry')
+              $page.url.includes('data-entry')
                 ? 'bg-red-200 font-semibold text-red-600'
                 : 'font-medium hover:text-red-600 hover:underline',
             ]"
-            href="route('topics.form')"
+            :href="reverseUrl('app:courses.list')"
             class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
           >
             <SquaresPlusIcon class="h-5 w-5 text-red-600" />
@@ -65,11 +65,11 @@ import TabLink from '@/Components/TabLink.vue';
         <li>
           <Link
             :class="[
-              $page.url.startsWith('/graph-visualization')
+              $page.component.includes('GraphVisualization')
                 ? 'bg-red-200 font-semibold text-red-600'
                 : 'font-medium hover:text-red-600 hover:underline',
             ]"
-            href="route('graph_visualization')"
+            :href="reverseUrl('app:graph_visualization')"
             class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
           >
             <!--            <svg
@@ -165,7 +165,7 @@ import TabLink from '@/Components/TabLink.vue';
           </ul>
           <div class="py-2">
             <Link
-              @click="router.post(route('logout'))"
+              @click="router.post(reverseUrl('logout'))"
               as="button"
               type="button"
               href="#"
@@ -176,9 +176,8 @@ import TabLink from '@/Components/TabLink.vue';
         </div>
       </nav>
     </header>
-
     <div
-      v-if="$page.url.startsWith('/data-entry')"
+      v-if="$page.url.includes('data-entry')"
       class="border-b border-gray-200 text-center text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400 md:w-11/12"
     >
       <ul class="-mb-px flex flex-wrap">

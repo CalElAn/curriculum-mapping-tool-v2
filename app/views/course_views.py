@@ -13,7 +13,7 @@ from pprint import pprint
 from django_rulebase.validator import Validator
 from app.cypher_queries import get_nodes_with_relationships
 from app.helpers import NeomodelAwareJsonEncoder, validate, redirect_back
-from app.models import Topic, Course, relationship_levels, TeachesRel
+from app.models import Topic, Course, relationship_levels, Teaches
 
 
 @inertia("Course/Form")
@@ -59,7 +59,7 @@ def courses_list(request):
 def get_topics(request, course_uid):
     return JsonResponse(
         get_nodes_with_relationships(
-            Course, TeachesRel, Topic, Course, course_uid, "name", Topic
+            Course, Teaches, Topic, Course, course_uid, "name", Topic
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,

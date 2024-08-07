@@ -20,7 +20,7 @@ const props = defineProps({
 });
 
 const routeUrl = {
-  Courses: "route('courses.list')",
+  Courses: reverseUrl('app:courses.list'),
   Topics: "route('topics.list')",
   'Knowledge Areas': "route('knowledge_areas.list')",
 }[props.title];

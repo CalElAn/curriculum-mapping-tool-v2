@@ -34,7 +34,7 @@ export function useSubformHelpers(
 
   function update(): void {
     form.post(
-      window.reverseUrl(updateRouteName, uid.value),
+      reverseUrl(updateRouteName, uid.value),
       {
         preserveScroll: true,
         onSuccess: () => {
@@ -46,7 +46,7 @@ export function useSubformHelpers(
 
   function destroy(): void {
     deleteConfirmationDialog(() =>
-      form.post(window.reverseUrl(destroyRouteName, uid.value), {
+      form.post(reverseUrl(destroyRouteName, uid.value), {
         preserveScroll: true,
         onSuccess: () => {
           emitFunction('destroyed');

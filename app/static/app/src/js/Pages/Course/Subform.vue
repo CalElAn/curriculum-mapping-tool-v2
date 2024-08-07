@@ -90,14 +90,15 @@ const useFormData = {
 
 const emit = defineEmits(emittedEvents);
 
-const { uid, form, adding, editing, store, update, destroy } = useSubformHelpers(
-  props.course,
-  useFormData,
-  emit,
-  window.reverseUrl("app:courses.store"),
-  "app:courses.update",
-  "app:courses.destroy",
-);
+const { uid, form, adding, editing, store, update, destroy } =
+  useSubformHelpers(
+    props.course,
+    useFormData,
+    emit,
+    reverseUrl("app:courses.store"),
+    "app:courses.update",
+    "app:courses.destroy",
+  );
 
 const newTeachesRelationship = {
   TEACHES: {
@@ -118,7 +119,7 @@ watch(viewing, (shouldView) => {
     shouldView,
     subformItems,
     showLoadingSpinner,
-    window.reverseUrl("app:courses.get_topics", uid.value),
+    reverseUrl("app:courses.get_topics", uid.value),
   );
 });
 </script>

@@ -91,7 +91,7 @@ watch(
   throttle(
     () =>
       getFilteredItems(
-        window.reverseUrl('app:courses.list'),
+        reverseUrl('app:courses.list'),
         filter.value,
         subformItems,
         'initialCourses',
