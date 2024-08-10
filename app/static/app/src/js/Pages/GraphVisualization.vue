@@ -276,7 +276,7 @@ onMounted(() => {
   <Head title="Visualization" />
 
   <div
-    class="base-card flex h-[90vh] w-full flex-col space-y-2 px-4 py-4 text-sm md:w-11/12 md:text-base xl:px-10"
+    class="base-card flex h-[90vh] w-full flex-col space-y-2 px-4 py-4 text-sm md:text-base xl:px-4"
   >
     <div class="flex flex-wrap gap-x-5 gap-y-3 rounded-lg border p-3">
       <span class="font-semibold tracking-wide">Courses:</span>

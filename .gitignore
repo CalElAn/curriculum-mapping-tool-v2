@@ -6,6 +6,6 @@ node_modules
 *sqlite*
 
 static/app/dist
-staticfiles
+staticfiles/*
 
 __pycache__

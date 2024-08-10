@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Link, router } from '@inertiajs/vue3';
-import { SquaresPlusIcon } from '@heroicons/vue/24/outline';
-import TabLink from '@/Components/TabLink.vue';
+import { Link, router } from "@inertiajs/vue3";
+import { SquaresPlusIcon, TableCellsIcon } from "@heroicons/vue/24/outline";
+import TabLink from "@/Components/TabLink.vue";
 </script>
 
 <template>
+  <!-- button to open sidebar on mobile -->
   <button
     data-drawer-target="logo-sidebar"
     data-drawer-toggle="logo-sidebar"
@@ -35,7 +36,7 @@ import TabLink from '@/Components/TabLink.vue';
     aria-label="Sidebar"
   >
     <div
-      class="h-full overflow-y-auto rounded-2xl border bg-white px-3 py-4 dark:bg-gray-800"
+      class="h-full overflow-y-auto rounded-xl border bg-white px-3 py-4 dark:bg-gray-800"
     >
       <Link
         href="/"
@@ -98,100 +99,116 @@ import TabLink from '@/Components/TabLink.vue';
                 />
               </g>
             </svg>
-            Visualization
+            Graph
+          </Link>
+        </li>
+        <li>
+          <Link
+            :class="[
+              $page.url.includes('data-entry')
+                ? 'bg-red-200 font-semibold text-red-600'
+                : 'font-medium hover:text-red-600 hover:underline',
+            ]"
+            :href="reverseUrl('app:matrix')"
+            class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
+          >
+            <TableCellsIcon class="h-5 w-5 text-red-600" />
+            Matrix
           </Link>
         </li>
       </ul>
     </div>
   </aside>
 
-  <div class="min-h-screen space-y-6 bg-gray-50 px-4 py-2 sm:ml-64">
-    <header
-      class="w-full rounded-2xl bg-white px-4 py-2 text-sm shadow md:w-11/12 xl:px-10"
-    >
-      <nav class="flex w-full items-center justify-end" aria-label="Global">
-        <!--        <div class="h-9 w-9 rounded-full bg-gray-200" aria-hidden="true"></div>-->
+  <div class="min-h-screen bg-gray-50 px-4 py-2 sm:ml-64">
+    <div class="md:w-11/12 space-y-6">
+      <header
+        class="w-full rounded-xl bg-white px-4 py-2 text-sm shadow"
+      >
+        <nav class="flex w-full items-center justify-end" aria-label="Global">
+          <!--        <div class="h-9 w-9 rounded-full bg-gray-200" aria-hidden="true"></div>-->
 
-        <button
-          id="dropdownAvatarNameButton"
-          data-dropdown-toggle="dropdownAvatarName"
-          class="flex items-center rounded-full pe-1 text-sm font-medium text-gray-900 hover:text-blue-600 focus:ring-4 focus:ring-gray-100 dark:text-white dark:hover:text-blue-500 dark:focus:ring-gray-700 md:me-0"
-          type="button"
-        >
-          <span class="sr-only">Open user menu</span>
-          <div
-            class="me-2 h-8 w-8 rounded-full bg-gray-200"
-            alt="user photo"
-          ></div>
-<!--            {{ $page.props.auth.user.name }}-->
-          <svg
-            class="ms-3 h-2.5 w-2.5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
+          <button
+            id="dropdownAvatarNameButton"
+            data-dropdown-toggle="dropdownAvatarName"
+            class="flex items-center rounded-full pe-1 text-sm font-medium text-gray-900 hover:text-blue-600 focus:ring-4 focus:ring-gray-100 dark:text-white dark:hover:text-blue-500 dark:focus:ring-gray-700 md:me-0"
+            type="button"
           >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-        </button>
-
-        <!-- Dropdown menu -->
-        <div
-          id="dropdownAvatarName"
-          class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
-        >
-          <!--          <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-            <div class="font-medium">Pro User</div>
-            <div class="truncate">name@flowbite.com</div>
-          </div>-->
-          <ul
-            class="py-2 text-sm text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
-          >
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Profile</a
-              >
-              <!-- TODO Profile link and page -->
-            </li>
-          </ul>
-          <div class="py-2">
-            <Link
-              @click="router.post(reverseUrl('logout'))"
-              as="button"
-              type="button"
-              href="#"
-              class="block w-full px-4 py-2 text-start text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Sign out</Link
+            <span class="sr-only">Open user menu</span>
+            <div
+              class="me-2 h-8 w-8 rounded-full bg-gray-200"
+              alt="user photo"
+            ></div>
+            <!--            {{ $page.props.auth.user.name }}-->
+            <svg
+              class="ms-3 h-2.5 w-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
             >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div
+            id="dropdownAvatarName"
+            class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
+          >
+            <!--          <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+              <div class="font-medium">Pro User</div>
+              <div class="truncate">name@flowbite.com</div>
+            </div>-->
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >Profile</a
+                >
+                <!-- TODO Profile link and page -->
+              </li>
+            </ul>
+            <div class="py-2">
+              <Link
+                @click="router.post(reverseUrl('logout'))"
+                as="button"
+                type="button"
+                href="#"
+                class="block w-full px-4 py-2 text-start text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+              >Sign out
+              </Link>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <div
-      v-if="$page.url.includes('data-entry')"
-      class="border-b border-gray-200 text-center text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400 md:w-11/12"
-    >
-      <ul class="-mb-px flex flex-wrap">
-        <li class="me-2">
-          <TabLink title="Courses" activeIfIncludes="courses" />
-        </li>
-        <li class="me-2">
-          <TabLink title="Topics" activeIfIncludes="topics" />
-        </li>
-        <li class="me-2">
-          <TabLink title="Knowledge Areas" activeIfIncludes="knowledge-areas" />
-        </li>
-      </ul>
+        </nav>
+      </header>
+      <div
+        v-if="$page.url.includes('data-entry')"
+        class="border-b border-gray-200 text-center text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
+      >
+        <ul class="-mb-px flex flex-wrap">
+          <li class="me-2">
+            <TabLink title="Courses" activeIfIncludes="courses" />
+          </li>
+          <li class="me-2">
+            <TabLink title="Topics" activeIfIncludes="topics" />
+          </li>
+          <li class="me-2">
+            <TabLink title="Knowledge Areas" activeIfIncludes="knowledge-areas" />
+          </li>
+        </ul>
+      </div>
+      <slot />
     </div>
-    <slot />
   </div>
 </template>

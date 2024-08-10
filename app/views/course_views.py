@@ -53,7 +53,7 @@ def courses_list(request):
 def get_topics(request, course_uid):
     return JsonResponse(
         get_nodes_with_relationships(
-            Course, Teaches, Topic, Course, course_uid, "name", Topic
+            Course, Teaches, Topic, Course, course_uid, [[Topic, "name"]]
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,

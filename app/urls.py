@@ -2,7 +2,7 @@ from django.urls import path, reverse, reverse_lazy
 from django.views.generic import RedirectView
 
 from .views import course_views, graph_visualization_views, teaches_views, topic_views, covers_views, \
-    knowledge_area_views
+    knowledge_area_views, matrix_views
 
 app_name = "app"
 urlpatterns = [
@@ -23,6 +23,7 @@ urlpatterns = [
     path("topics/<str:topic_uid>/update/", topic_views.update, name="topics.update"),
     path("topics/<str:topic_uid>/destroy/", topic_views.destroy, name="topics.destroy"),
 
+
     path("data-entry/knowledge-areas/", knowledge_area_views.knowledge_areas_list, name="knowledge_areas.list"),
     path("knowledge-areas/<str:knowledge_area_uid>/get-topics/", knowledge_area_views.get_topics, name="knowledge_areas.get_topics"),
     path("knowledge-areas/store/", knowledge_area_views.store, name="knowledge_areas.store"),
@@ -41,4 +42,5 @@ urlpatterns = [
 
 
     path("graph-visualization/", graph_visualization_views.view_graph_visualization, name="graph_visualization"),
+    path("matrix/", matrix_views.view_courses_and_topics_matrix, name="matrix.courses_and_topics"),
 ]

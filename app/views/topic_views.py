@@ -54,7 +54,7 @@ def topics_list(request):
 def get_courses(request, topic_uid):
     return JsonResponse(
         get_nodes_with_relationships(
-            Course, Teaches, Topic, Topic, topic_uid, "number", Course
+            Course, Teaches, Topic, Topic, topic_uid, [[Course, "number"]]
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,
@@ -65,7 +65,7 @@ def get_courses(request, topic_uid):
 def get_knowledge_areas(request, topic_uid):
     return JsonResponse(
         get_nodes_with_relationships(
-            Topic, Covers, KnowledgeArea, Topic, topic_uid, "title", KnowledgeArea
+            Topic, Covers, KnowledgeArea, Topic, topic_uid, [[KnowledgeArea, "title"]]
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,

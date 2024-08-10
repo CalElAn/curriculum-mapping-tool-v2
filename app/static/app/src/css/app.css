@@ -4,7 +4,11 @@
 
 @layer components {
     .base-card {
-        @apply rounded-2xl bg-white shadow;
+        @apply rounded-xl bg-white shadow;
+    }
+
+    .form-card {
+        @apply base-card w-full px-4 py-4 text-sm md:text-base xl:px-10;
     }
 
     .input {
@@ -47,9 +51,17 @@
         @apply border border-red-400 ring-4 ring-red-200 ring-opacity-50;
     }
 
-    /*.viewing-subform-container {
-        @apply mb-6 ml-4 border-l border-gray-500 p-4;
-    }*/
+    .thead {
+        @apply bg-slate-100 border border-slate-200 ;
+    }
+
+    .td {
+        @apply border border-slate-200;
+    }
+
+    .tbody {
+        @apply hover:bg-gray-50;
+    }
 
     .viewing-subform-container {
         @apply -mt-6 mb-6 ml-4 border-l border-gray-500 pl-4 pt-6;

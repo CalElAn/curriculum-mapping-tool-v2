@@ -1,13 +1,11 @@
 <template>
   <Head title="Data Entry | Knowledge Areas" />
 
-  <div
-    class="base-card xmt-6 w-full px-4 py-4 text-sm md:w-11/12 md:text-base xl:px-10"
-  >
+  <div class="form-card">
     <p class="form-title mt-2 text-center">Knowledge Areas</p>
     <div class="mt-6">
       <div
-        class="mb-2 mt-8 flex flex-col items-center justify-between gap-y-3 lg:flex-row md:mt-8"
+        class="mb-2 mt-8 flex flex-col items-center justify-between gap-y-3 md:mt-8 lg:flex-row"
       >
         <div
           class="flex w-full flex-row items-center justify-center gap-1 lg:w-3/5 xl:gap-4 xl:text-base"
@@ -46,24 +44,21 @@
           No Knowledge Areas found
         </p>
       </div>
-      <Pagination
-        class="mt-6 flex w-11/12 justify-start"
-        :pageObj="pageObj"
-      />
+      <Pagination class="mt-6 flex w-11/12 justify-start" :pageObj="pageObj" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid';
-import { Head } from '@inertiajs/vue3';
-import AddButton from '@/Components/AddButton.vue';
-import Subform from '@/Pages/KnowledgeArea/Subform.vue';
-import { useFormHelpers } from '@/Helpers/formHelpers';
-import { provide, ref, watch } from 'vue';
-import Pagination from '@/Components/Pagination.vue';
-import throttle from 'lodash/throttle';
-import { getFilteredItems } from '@/Helpers/helpers';
+import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
+import { Head } from "@inertiajs/vue3";
+import AddButton from "@/Components/AddButton.vue";
+import Subform from "@/Pages/KnowledgeArea/Subform.vue";
+import { useFormHelpers } from "@/Helpers/formHelpers";
+import { provide, ref, watch } from "vue";
+import Pagination from "@/Components/Pagination.vue";
+import throttle from "lodash/throttle";
+import { getFilteredItems } from "@/Helpers/helpers";
 
 const props = defineProps<{
   initialKnowledgeAreas: Object;
@@ -73,8 +68,8 @@ const props = defineProps<{
   filter: string | null;
 }>();
 
-provide('allTopics', props.allTopics);
-provide('levels', props.levels);
+provide("allTopics", props.allTopics);
+provide("levels", props.levels);
 
 const filter = ref(props.filter);
 
@@ -92,10 +87,10 @@ watch(
   throttle(
     () =>
       getFilteredItems(
-        reverseUrl('app:knowledge_areas.form'),
+        reverseUrl("app:knowledge_areas.form"),
         filter.value,
         subformItems,
-        'initialKnowledgeAreas',
+        "initialKnowledgeAreas",
       ),
     150,
   ),
@@ -103,5 +98,5 @@ watch(
 </script>
 
 <style scoped>
-@import '../../../css/subform_transition.css';
+@import "../../../css/subform_transition.css";
 </style>
