@@ -30,13 +30,13 @@ class StructuredNode(NeoModelStructuredNode):
 
     def save(self):
         self.updated_at = datetime.now()
-        super().save()
+        return super().save()
 
 
 class StructuredRel(NeoModelStructuredRel):
     def save(self):
         self.updated_at = datetime.now()
-        super().save()
+        return super().save()
 
 class Teaches(StructuredRel):
     __label__ = "TEACHES"
