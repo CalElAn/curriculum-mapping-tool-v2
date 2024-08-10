@@ -1,4 +1,4 @@
-from typing import Type, Union
+from typing import Type, Union, List
 
 from neomodel import db, StructuredNode, StructuredRel
 
@@ -9,8 +9,9 @@ def get_nodes_with_relationships(
     to_node: Type[StructuredNode],
     node_to_find: Type[StructuredNode] = None,
     node_to_find_uid: str = None,
-    order_by: str | None = None,
-    node_to_order_by: Type[StructuredNode] | Type[StructuredNode] | None = None,
+    order_by_clauses: (
+        list[list[Type[StructuredNode] | Type[StructuredRel] | str]] | None
+    ) = None,
 ) -> list[dict[str, Union[Type[StructuredNode | StructuredRel]]]]:
     from_node_label = from_node.__label__
     from_node_var = from_node_label
@@ -33,10 +34,14 @@ def get_nodes_with_relationships(
 
     cypher_query += f"RETURN {from_node_var}, {relationship_label}, {to_node_var}"
 
-    if order_by and node_to_order_by:
-        cypher_query += (
-            f" ORDER BY LOWER(toString({node_to_order_by.__label__}.{order_by}))"
+    if order_by_clauses:
+        order_by_clauses = ", ".join(
+            [
+                f"LOWER(toString({order_by_clause[0].__label__}.{order_by_clause[1]}))"
+                for order_by_clause in order_by_clauses
+            ]
         )
+        cypher_query += f" ORDER BY {order_by_clauses}"
 
     query_results, cols = db.cypher_query(cypher_query)
 
