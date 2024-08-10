@@ -1,0 +1,23 @@
+FROM python:3.10 as python
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc
+
+WORKDIR /usr/src/app
+
+RUN pip install gunicorn
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+#COPY . .
+
+#CMD [ "python", "./your-daemon-or-script.py" ]
+
+FROM nginx:1.25 as nginx
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d

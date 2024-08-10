@@ -1,0 +1,73 @@
+services:
+
+  python:
+    build:
+      context: .
+      target: python
+      dockerfile: Dockerfile.prod
+    container_name: python
+    expose:
+      - 8000
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - cmt-v2
+    working_dir: /usr/src/app
+    command: gunicorn curriculum_mapping_tool.wsgi:application --bind 0.0.0.0:8000
+    depends_on:
+      - mysql
+
+  nginx:
+    build:
+      context: .
+      target: nginx
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./staticfiles:/var/www/html/staticfiles
+    networks:
+      - cmt-v2
+    ports:
+      - 80:80
+    depends_on:
+      - python
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    ports:
+      - 3330:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USER}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+    volumes:
+      - cmt-v2-mysql:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - '-p${DB_PASSWORD}'
+      retries: 3
+      timeout: 5s
+    networks:
+      - cmt-v2
+
+  npm:
+      container_name: npm
+      image: node:20
+      volumes:
+          - .:/home/node/curriculum-mapping-tool
+      working_dir: /home/node/curriculum-mapping-tool/app
+      user: 'node'
+      networks:
+        - cmt-v2
+
+networks:
+  cmt-v2:
+    driver: bridge
+
+volumes:
+  cmt-v2-mysql:
+    driver: local
