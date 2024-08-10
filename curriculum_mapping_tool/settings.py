@@ -154,7 +154,7 @@ INERTIA_JSON_ENCODER = NeomodelAwareJsonEncoder
 # django_vite
 DJANGO_VITE = {
     "default": {
-        "dev_mode": env("DJANGO_VITE_DEV_MODE"),
+        "dev_mode": env.bool("DJANGO_VITE_DEV_MODE"),
         "dev_server_port": env("DJANGO_VITE_DEV_SERVER_PORT"),
     }
 }
