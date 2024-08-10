@@ -1,7 +1,7 @@
 from django.urls import path, reverse, reverse_lazy
 from django.views.generic import RedirectView
 
-from .views import course_views, graph_visualization_views, teaches_views, topic_views, covers_views, \
+from .views import course_views, graph_views, teaches_views, topic_views, covers_views, \
     knowledge_area_views, matrix_views
 
 app_name = "app"
@@ -41,6 +41,6 @@ urlpatterns = [
     path("covers/<str:covers_uid>/destroy/", covers_views.destroy, name="covers.destroy"),
 
 
-    path("graph-visualization/", graph_visualization_views.view_graph_visualization, name="graph_visualization"),
+    path("graph/", graph_views.view_graph, name="graph"),
     path("matrix/", matrix_views.view_courses_and_topics_matrix, name="matrix.courses_and_topics"),
 ]

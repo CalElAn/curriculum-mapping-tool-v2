@@ -66,11 +66,11 @@ import TabLink from "@/Components/TabLink.vue";
         <li>
           <Link
             :class="[
-              $page.component.includes('GraphVisualization')
+              $page.component.includes('Graph')
                 ? 'bg-red-200 font-semibold text-red-600'
                 : 'font-medium hover:text-red-600 hover:underline',
             ]"
-            :href="reverseUrl('app:graph_visualization')"
+            :href="reverseUrl('app:graph')"
             class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
           >
             <!--            <svg
@@ -105,11 +105,11 @@ import TabLink from "@/Components/TabLink.vue";
         <li>
           <Link
             :class="[
-              $page.url.includes('data-entry')
+              $page.url.includes('matrix')
                 ? 'bg-red-200 font-semibold text-red-600'
                 : 'font-medium hover:text-red-600 hover:underline',
             ]"
-            :href="reverseUrl('app:matrix')"
+            :href="reverseUrl('app:matrix.courses_and_topics')"
             class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
           >
             <TableCellsIcon class="h-5 w-5 text-red-600" />
@@ -121,10 +121,8 @@ import TabLink from "@/Components/TabLink.vue";
   </aside>
 
   <div class="min-h-screen bg-gray-50 px-4 py-2 sm:ml-64">
-    <div class="md:w-11/12 space-y-6">
-      <header
-        class="w-full rounded-xl bg-white px-4 py-2 text-sm shadow"
-      >
+    <div class="space-y-6 md:w-11/12">
+      <header class="w-full rounded-xl bg-white px-4 py-2 text-sm shadow">
         <nav class="flex w-full items-center justify-end" aria-label="Global">
           <!--        <div class="h-9 w-9 rounded-full bg-gray-200" aria-hidden="true"></div>-->
 
@@ -174,7 +172,7 @@ import TabLink from "@/Components/TabLink.vue";
                 <a
                   href="#"
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Profile</a
+                  >Profile</a
                 >
                 <!-- TODO Profile link and page -->
               </li>
@@ -186,7 +184,7 @@ import TabLink from "@/Components/TabLink.vue";
                 type="button"
                 href="#"
                 class="block w-full px-4 py-2 text-start text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              >Sign out
+                >Sign out
               </Link>
             </div>
           </div>
@@ -204,7 +202,10 @@ import TabLink from "@/Components/TabLink.vue";
             <TabLink title="Topics" activeIfIncludes="topics" />
           </li>
           <li class="me-2">
-            <TabLink title="Knowledge Areas" activeIfIncludes="knowledge-areas" />
+            <TabLink
+              title="Knowledge Areas"
+              activeIfIncludes="knowledge-areas"
+            />
           </li>
         </ul>
       </div>

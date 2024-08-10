@@ -21,9 +21,9 @@ from app.models import (
 )
 
 
-@inertia("GraphVisualization")
+@inertia("Graph")
 @require_GET
-def view_graph_visualization(request):
+def view_graph(request):
     courses_teaches_topics = get_nodes_with_relationships(Course, Teaches, Topic)
 
     courses = [i["Course"] for i in courses_teaches_topics]
