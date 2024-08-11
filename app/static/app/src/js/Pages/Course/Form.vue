@@ -1,6 +1,8 @@
 <template>
   <Head title="Data Entry | Courses" />
 
+  <Breadcrumb class="mt-6" section="Data Entry" page="Courses"/>
+
   <div class="form-card">
     <p class="form-title mt-2 text-center">Courses</p>
     <div class="mt-6">
@@ -60,6 +62,7 @@ import { provide, ref, watch } from "vue";
 import Pagination from "@/Components/Pagination.vue";
 import throttle from "lodash/throttle";
 import { getFilteredItems } from "@/Helpers/helpers";
+import Breadcrumb from "@/Components/Breadcrumb.vue";
 
 const props = defineProps<{
   initialCourses: Object;

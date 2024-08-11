@@ -1,17 +1,14 @@
 <template>
+  <Breadcrumb class="mt-6" section="Matrix" page="Courses and Topics" />
+
   <div class="base-card overflow-auto p-4">
     <table
       class="w-full table-auto border-collapse border border-slate-800 text-left text-sm xl:text-base"
     >
       <thead class="thead">
         <tr>
-          <th class="td p-2 text-center tracking-wide" rowspan="2">
-            Courses
-          </th>
-          <th
-            class="td p-2 text-center tracking-wide"
-            :colspan="topics.length"
-          >
+          <th class="td p-2 text-center tracking-wide" rowspan="2">Courses</th>
+          <th class="td p-2 text-center tracking-wide" :colspan="topics.length">
             Topics
           </th>
         </tr>
@@ -48,12 +45,12 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import Breadcrumb from "@/Components/Breadcrumb.vue";
 
 const props = defineProps<{
   courses: Array<object>;
   topics: Array<object>;
   coursesTeachesTopics: Array<object>;
-  levels: Array<string>;
 }>();
 
 const relationshipData = computed(() => {
@@ -80,7 +77,7 @@ function getTooltipContent(courseUid, topicUid) {
   let tooltipData = relationshipData.value[courseUid]?.[topicUid];
 
   if (tooltipData)
-    return `Tools: ${tooltipData.tools}<br>Comments: ${tooltipData.comments}`;
+    return `Tools: ${tooltipData.tools ?? ""}<br>Comments: ${tooltipData.comments ?? ""}`;
 
   return null;
 }

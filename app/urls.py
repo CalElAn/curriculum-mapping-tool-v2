@@ -42,5 +42,6 @@ urlpatterns = [
 
 
     path("graph/", graph_views.view_graph, name="graph"),
-    path("matrix/", matrix_views.view_courses_and_topics_matrix, name="matrix.courses_and_topics"),
+    path("matrix/courses-and-topics", matrix_views.view_courses_and_topics_matrix, name="matrix.courses_and_topics"),
+    path("matrix/topics-and-knowledge-areas", matrix_views.view_topics_and_knowledge_areas_matrix, name="matrix.topics_and_knowledge_areas"),
 ]

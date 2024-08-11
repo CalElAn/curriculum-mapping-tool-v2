@@ -2,6 +2,8 @@
 import { Link, router } from "@inertiajs/vue3";
 import { SquaresPlusIcon, TableCellsIcon } from "@heroicons/vue/24/outline";
 import TabLink from "@/Components/TabLink.vue";
+import SidebarDropdownButton from "@/Components/SidebarDropdownButton.vue";
+import ProfilePicture from "@/Components/ProfilePicture.vue";
 </script>
 
 <template>
@@ -43,26 +45,29 @@ import TabLink from "@/Components/TabLink.vue";
         class="mb-5 flex items-center ps-2.5 text-lg font-semibold tracking-wide"
       >
         Curriculum Mapping Tool
-        <!--        <span
-                    class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-                    >Flowbite</span
-                  >-->
       </Link>
       <ul class="mt-8 space-y-4 font-medium">
-        <li>
-          <Link
-            :class="[
-              $page.url.includes('data-entry')
-                ? 'bg-red-200 font-semibold text-red-600'
-                : 'font-medium hover:text-red-600 hover:underline',
-            ]"
-            :href="reverseUrl('app:courses.list')"
-            class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
-          >
-            <SquaresPlusIcon class="h-5 w-5 text-red-600" />
-            Data Entry
-          </Link>
-        </li>
+        <SidebarDropdownButton
+          section="Data Entry"
+          :activeDropdownUrls="['data-entry']"
+          :dropdownItems="[
+            {
+              href: reverseUrl('app:courses.list'),
+              activeUrls: ['courses'],
+              label: 'Courses',
+            },
+            {
+              href: reverseUrl('app:topics.list'),
+              activeUrls: ['topics'],
+              label: 'Topics',
+            },
+            {
+              href: reverseUrl('app:knowledge_areas.list'),
+              activeUrls: ['knowledge-areas'],
+              label: 'Knowledge Areas',
+            },
+          ]"
+        />
         <li>
           <Link
             :class="[
@@ -73,19 +78,6 @@ import TabLink from "@/Components/TabLink.vue";
             :href="reverseUrl('app:graph')"
             class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
           >
-            <!--            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              version="1.1"
-              viewBox="-5.0 -10.0 110.0 135.0"
-              class="h-5 w-5 text-red-600"
-            >
-              <path
-                d="m19.906 1c4.9766 0 9.4844 2.0195 12.75 5.2812s5.2812 7.7695 5.2812 12.75c0 4.082-1.3594 7.8516-3.6484 10.871l31.988 31.312c2.7852-2.2031 6.2344-3.6016 10-3.8477l1.2773-20.629c-3.6172-0.69141-6.8555-2.4609-9.3555-4.9609-3.2617-3.2656-5.2812-7.7695-5.2812-12.75 0-4.9766 2.0195-9.4844 5.2812-12.75 3.2656-3.2617 7.7695-5.2812 12.75-5.2812 4.9766 0 9.4844 2.0195 12.75 5.2812 3.2617 3.2656 5.2812 7.7695 5.2812 12.75 0 4.9766-2.0195 9.4844-5.2812 12.75-3.0039 3.0039-7.0625 4.9492-11.566 5.2422l-1.2773 20.625c3.6172 0.69141 6.8555 2.4609 9.3555 4.9609 3.2656 3.2617 5.2812 7.7695 5.2812 12.746 0 4.9766-2.0195 9.4844-5.2812 12.75-3.2617 3.2656-7.7695 5.2812-12.746 5.2812-4.9766 0-9.4844-2.0156-12.75-5.2812-2.3633-2.3633-4.0781-5.3828-4.8398-8.7617l-22.793 2.1914c-0.14844 4.7539-2.1328 9.0469-5.2695 12.184-3.2656 3.2617-7.7695 5.2812-12.75 5.2812-4.9766 0-9.4844-2.0195-12.75-5.2812-3.2617-3.2656-5.2812-7.7695-5.2812-12.75 0-4.9766 2.0195-9.4844 5.2812-12.75 3.2656-3.2617 7.7695-5.2812 12.75-5.2812 4.9766 0 9.4844 2.0195 12.75 5.2812 2.3633 2.3633 4.0742 5.3828 4.8398 8.7617l22.793-2.1914c0.12109-3.8672 1.4531-7.4258 3.6406-10.309l-31.988-31.312c-3.0703 2.4336-6.957 3.8867-11.18 3.8867-4.9766 0-9.4844-2.0195-12.75-5.2812-3.2617-3.2656-5.2812-7.7695-5.2812-12.75 0-4.9766 2.0195-9.4844 5.2812-12.75 3.2656-3.2617 7.7695-5.2812 12.75-5.2812z"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="6"
-              />
-            </svg>-->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 125"
@@ -102,20 +94,22 @@ import TabLink from "@/Components/TabLink.vue";
             Graph
           </Link>
         </li>
-        <li>
-          <Link
-            :class="[
-              $page.url.includes('matrix')
-                ? 'bg-red-200 font-semibold text-red-600'
-                : 'font-medium hover:text-red-600 hover:underline',
-            ]"
-            :href="reverseUrl('app:matrix.courses_and_topics')"
-            class="flex w-full items-center justify-start gap-2 rounded-lg py-2 pl-3 tracking-wide"
-          >
-            <TableCellsIcon class="h-5 w-5 text-red-600" />
-            Matrix
-          </Link>
-        </li>
+        <SidebarDropdownButton
+          section="Matrix"
+          :activeDropdownUrls="['matrix']"
+          :dropdownItems="[
+            {
+              href: reverseUrl('app:matrix.courses_and_topics'),
+              activeUrls: ['courses-and-topics'],
+              label: 'Courses and Topics',
+            },
+            {
+              href: reverseUrl('app:matrix.topics_and_knowledge_areas'),
+              activeUrls: ['topics-and-knowledge-areas'],
+              label: 'Topics and Knowledge Areas',
+            },
+          ]"
+        />
       </ul>
     </div>
   </aside>
@@ -133,11 +127,12 @@ import TabLink from "@/Components/TabLink.vue";
             type="button"
           >
             <span class="sr-only">Open user menu</span>
-            <div
-              class="me-2 h-8 w-8 rounded-full bg-gray-200"
-              alt="user photo"
-            ></div>
-            <!--            {{ $page.props.auth.user.name }}-->
+            <ProfilePicture
+              :profilePicturePath="$page.props.auth.user.username"
+              class="h-8 w-8 mr-2"
+            />
+            {{ $page.props.auth.user.username }}
+<!--            {{ $page.props.auth.user }}-->
             <svg
               class="ms-3 h-2.5 w-2.5"
               aria-hidden="true"
@@ -179,7 +174,7 @@ import TabLink from "@/Components/TabLink.vue";
             </ul>
             <div class="py-2">
               <Link
-                @click="router.post(reverseUrl('logout'))"
+                @click="router.post(reverseUrl('accounts/logout'))"
                 as="button"
                 type="button"
                 href="#"
@@ -190,25 +185,25 @@ import TabLink from "@/Components/TabLink.vue";
           </div>
         </nav>
       </header>
-      <div
-        v-if="$page.url.includes('data-entry')"
-        class="border-b border-gray-200 text-center text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
-      >
-        <ul class="-mb-px flex flex-wrap">
-          <li class="me-2">
-            <TabLink title="Courses" activeIfIncludes="courses" />
-          </li>
-          <li class="me-2">
-            <TabLink title="Topics" activeIfIncludes="topics" />
-          </li>
-          <li class="me-2">
-            <TabLink
-              title="Knowledge Areas"
-              activeIfIncludes="knowledge-areas"
-            />
-          </li>
-        </ul>
-      </div>
+      <!--      <div
+              v-if="$page.url.includes('data-entry')"
+              class="border-b border-gray-200 text-center text-base font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
+            >
+              <ul class="-mb-px flex flex-wrap">
+                <li class="me-2">
+                  <TabLink title="Courses" activeIfIncludes="courses" />
+                </li>
+                <li class="me-2">
+                  <TabLink title="Topics" activeIfIncludes="topics" />
+                </li>
+                <li class="me-2">
+                  <TabLink
+                    title="Knowledge Areas"
+                    activeIfIncludes="knowledge-areas"
+                  />
+                </li>
+              </ul>
+            </div>-->
       <slot />
     </div>
   </div>

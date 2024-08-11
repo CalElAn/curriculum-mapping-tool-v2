@@ -1,9 +1,11 @@
-import { router } from '@inertiajs/vue3';
-import type { Ref } from 'vue';
+import { router } from "@inertiajs/vue3";
+import type { Ref } from "vue";
+import { SquaresPlusIcon, TableCellsIcon } from "@heroicons/vue/24/outline";
+import GraphIcon from "@/Components/GraphIcon.vue";
 
 export function autoGrow(event): void {
-  event.target.style.height = '';
-  event.target.style.height = event.target.scrollHeight + 'px';
+  event.target.style.height = "";
+  event.target.style.height = event.target.scrollHeight + "px";
 }
 
 export function getFilteredItems(
@@ -23,4 +25,12 @@ export function getFilteredItems(
       },
     },
   );
+}
+
+export function getSectionIcon(sectionName) {
+  return {
+    "Data Entry": SquaresPlusIcon,
+    Graph: GraphIcon,
+    "Matrix": TableCellsIcon,
+  }[sectionName];
 }

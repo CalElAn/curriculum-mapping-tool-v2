@@ -6,6 +6,7 @@ export default {
   content: [
     "./templates/**/*.html",
     "./static/app/src/js/**/*.vue",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {

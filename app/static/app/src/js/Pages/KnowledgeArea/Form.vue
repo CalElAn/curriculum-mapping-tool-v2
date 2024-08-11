@@ -1,6 +1,8 @@
 <template>
   <Head title="Data Entry | Knowledge Areas" />
 
+  <Breadcrumb class="mt-6" section="Data Entry" page="Knowledge Areas"/>
+
   <div class="form-card">
     <p class="form-title mt-2 text-center">Knowledge Areas</p>
     <div class="mt-6">
@@ -59,6 +61,7 @@ import { provide, ref, watch } from "vue";
 import Pagination from "@/Components/Pagination.vue";
 import throttle from "lodash/throttle";
 import { getFilteredItems } from "@/Helpers/helpers";
+import Breadcrumb from "@/Components/Breadcrumb.vue";
 
 const props = defineProps<{
   initialKnowledgeAreas: Object;

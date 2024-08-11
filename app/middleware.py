@@ -16,6 +16,9 @@ def inertia_share(get_response):
     def middleware(request):
         share(
             request,
+            auth={
+                "user": request.user,
+            },
             session={
                 "data": request.session.get("data", None),
             },
@@ -76,8 +79,8 @@ def login_required_middleware(get_response):
 
 def superuser_required_middleware(get_response):
     def middleware(request):
-        # url names should be in the format of e.g courses.list
-        protected_url_name_prefixes = ["courses"]
+        # url names should be in the format of e.g. "courses.list"
+        protected_url_name_prefixes = ["courses", "knowledge_areas"]
         protected_url_name_suffixes = ["store", "update", "destroy"]
 
         request_url_name = resolve(request.path_info).url_name.split(".")
