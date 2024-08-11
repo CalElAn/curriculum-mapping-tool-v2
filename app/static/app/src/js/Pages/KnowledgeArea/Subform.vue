@@ -26,6 +26,7 @@
         @cancelEditing="editing = false"
         @edit="editing = true"
         @toggleViewing="viewing = !viewing"
+        :shouldHideEditButton="!$page.props.auth.user.is_superuser"
         :adding="adding"
         :editing="editing"
         :viewing="viewing"

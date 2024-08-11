@@ -20,13 +20,15 @@
     >
       {{ viewing ? '' : viewingText }}
     </SubformButton>
-    <SubformButton
-      iconType="edit"
-      v-if="!editing && !adding"
-      @click="$emit('edit')"
-    >
-      Edit
-    </SubformButton>
+    <template v-if="!shouldHideEditButton">
+      <SubformButton
+        iconType="edit"
+        v-if="!editing && !adding"
+        @click="$emit('edit')"
+      >
+        Edit
+      </SubformButton>
+    </template>
     <template v-if="editing">
       <SubformButton
         iconType="save"
@@ -68,6 +70,10 @@ defineProps({
   showDeleteButton: {
     type: Boolean,
     default: true,
+  },
+  shouldHideEditButton: {
+    type: Boolean,
+    default: false,
   },
 });
 
