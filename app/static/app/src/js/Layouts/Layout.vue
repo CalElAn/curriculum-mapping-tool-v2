@@ -4,6 +4,12 @@ import { SquaresPlusIcon, TableCellsIcon } from "@heroicons/vue/24/outline";
 import TabLink from "@/Components/TabLink.vue";
 import SidebarDropdownButton from "@/Components/SidebarDropdownButton.vue";
 import ProfilePicture from "@/Components/ProfilePicture.vue";
+
+const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+function logout() {
+  document.getElementById("logout-form").submit();
+}
 </script>
 
 <template>
@@ -129,10 +135,10 @@ import ProfilePicture from "@/Components/ProfilePicture.vue";
             <span class="sr-only">Open user menu</span>
             <ProfilePicture
               :profilePicturePath="$page.props.auth.user.username"
-              class="h-8 w-8 mr-2"
+              class="mr-2 h-8 w-8"
             />
             {{ $page.props.auth.user.username }}
-<!--            {{ $page.props.auth.user }}-->
+            <!--            {{ $page.props.auth.user }}-->
             <svg
               class="ms-3 h-2.5 w-2.5"
               aria-hidden="true"
@@ -155,11 +161,7 @@ import ProfilePicture from "@/Components/ProfilePicture.vue";
             id="dropdownAvatarName"
             class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
           >
-            <!--          <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-              <div class="font-medium">Pro User</div>
-              <div class="truncate">name@flowbite.com</div>
-            </div>-->
-            <ul
+<!--            <ul
               class="py-2 text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
             >
@@ -169,18 +171,28 @@ import ProfilePicture from "@/Components/ProfilePicture.vue";
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >Profile</a
                 >
-                <!-- TODO Profile link and page -->
               </li>
-            </ul>
+            </ul>-->
             <div class="py-2">
-              <Link
-                @click="router.post(reverseUrl('accounts/logout'))"
-                as="button"
+              <form
+                hidden
+                id="logout-form"
+                action="/accounts/logout/"
+                method="post"
+              >
+                <input
+                  type="hidden"
+                  name="csrfmiddlewaretoken"
+                  :value="csrftoken"
+                />
+              </form>
+              <button
+                @click="logout()"
                 type="button"
-                href="#"
                 class="block w-full px-4 py-2 text-start text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Sign out
-              </Link>
+              >
+                Sign out
+              </button>
             </div>
           </div>
         </nav>

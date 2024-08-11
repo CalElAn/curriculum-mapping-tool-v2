@@ -11,6 +11,15 @@
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
       </form>
+      <div class="flex gap-2 mt-2">
+        <span>Already have an account?</span>
+        <a
+          class="text-green-600 underline hover:text-green-700"
+          href="/accounts/login/"
+        >
+          Log in
+        </a>
+      </div>
     </div>
   </div>
 {% endblock %}

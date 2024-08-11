@@ -20,7 +20,7 @@
     </button>
     <ul
       v-show="shouldOpenDropdown"
-      class="ml-5 space-y-2 px-2 pb-3 pt-1 text-sm font-normal text-red-900"
+      class="ml-5 space-y-3 px-2 pb-3 pt-1 text-sm font-normal text-red-900"
     >
       <li v-for="dropdownItem in dropdownItems">
         <Link

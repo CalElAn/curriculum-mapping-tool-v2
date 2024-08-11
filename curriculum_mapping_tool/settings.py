@@ -161,12 +161,12 @@ DJANGO_VITE = {
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# url's must begin with a slash in order to work
 LOGIN_REDIRECT_URL = "/"
-LOGIN_URL = "accounts/login/"
-LOGOUT_REDIRECT_URL = "accounts/login/"
+LOGIN_URL = "/accounts/login/"
+LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
