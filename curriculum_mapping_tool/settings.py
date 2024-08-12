@@ -100,6 +100,9 @@ DATABASES = {
         "PASSWORD": env("DB_PASSWORD"),
         "HOST": "mysql",
         "PORT": "3306",
+        "TEST": {
+            "NAME": f"test_{env('DB_DATABASE')}",
+        },
     }
 }
 
@@ -133,6 +136,8 @@ USE_I18N = True
 USE_TZ = True
 
 JS_ROUTES_INCLUSION_LIST = [
+    "admin",
+    "accounts",
     "app",
 ]
 
