@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, Page
 from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
@@ -6,6 +8,9 @@ from django_rulebase import Validator
 from inertia.utils import InertiaJsonEncoder
 from django.db.models.fields.files import ImageFieldFile
 from neomodel import StructuredNode, StructuredRel
+import environ, os
+
+items_per_page = 7
 
 
 class NeomodelAwareJsonEncoder(InertiaJsonEncoder):
@@ -55,12 +60,12 @@ def validate_unique_node_attribute(
         raise ValidationError({attribute: f"must be unique"})
 
 
-def redirect_back(request):
-    return redirect(request.META.get("HTTP_REFERER"))
+def redirect_back(request) -> HttpResponseRedirect:
+    return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
 def paginate(items: list[any], page_number: int) -> tuple[Paginator, Page]:
-    paginator = Paginator(items, 7, allow_empty_first_page=True)
+    paginator = Paginator(items, items_per_page, allow_empty_first_page=True)
 
     page_obj = paginator.page(page_number)
 
@@ -79,3 +84,11 @@ def get_page_obj_props(page_obj: Page, paginator: Paginator) -> dict[str, any]:
         "currentPage": page_obj.number,
         "pageRange": list(paginator.page_range),
     }
+
+
+def get_env() -> environ.Env:
+    env = environ.Env()
+
+    environ.Env.read_env(os.path.join(Path(__file__).resolve().parent.parent, ".env"))
+
+    return env

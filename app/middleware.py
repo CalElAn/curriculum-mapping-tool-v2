@@ -7,9 +7,14 @@ from django.shortcuts import redirect
 from django.urls import resolve
 from inertia import share
 
+from app.helpers import redirect_back
+
 
 def is_inertia_request(request) -> bool:
-    return request.META.get("HTTP_X_INERTIA") == "true"
+    return (
+        request.META.get("HTTP_X_INERTIA") == "true"
+        or request.META.get("HTTP_X_INERTIA") == True
+    )
 
 
 def inertia_share(get_response):
@@ -46,7 +51,7 @@ class HandleInertiaValidationErrors:
         if isinstance(exception, ValidationError) and is_inertia_request(request):
             request.session["errors"] = exception.message_dict
 
-            return redirect(request.META.get("HTTP_REFERER"))
+            return redirect_back(request)
 
         return None
 

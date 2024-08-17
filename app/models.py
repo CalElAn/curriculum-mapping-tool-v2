@@ -38,6 +38,7 @@ class StructuredRel(NeoModelStructuredRel):
         self.updated_at = datetime.now()
         return super().save()
 
+
 class Teaches(StructuredRel):
     __label__ = "TEACHES"
     uid = StringProperty(unique_index=True, default=uuid4)

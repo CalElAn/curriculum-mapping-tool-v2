@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template import loader
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from inertia import inertia
@@ -26,7 +26,7 @@ from app.models import Topic, Course, relationship_levels, Teaches
 
 @inertia("Course/Form")
 @require_GET
-def courses_list(request):
+def courses_list(request) -> dict[str, any]:
     request_filter = request.GET.get("filter", "")
 
     courses = Course.nodes.order_by("number").all()
@@ -50,7 +50,7 @@ def courses_list(request):
 
 
 @require_GET
-def get_topics(request, course_uid):
+def get_topics(request, course_uid: str) -> JsonResponse:
     return JsonResponse(
         get_nodes_with_relationships(
             Course, Teaches, Topic, Course, course_uid, [[Topic, "name"]]
@@ -61,12 +61,12 @@ def get_topics(request, course_uid):
 
 
 @require_POST
-def store(request):
+def store(request) -> HttpResponseRedirect:
     validation_results = validate(
         request,
         {
             "number": "required|integer",
-            "title": "required",
+            "title": "required|string",
         },
     )
 
@@ -82,7 +82,7 @@ def store(request):
 
 
 @require_POST
-def update(request, course_uid):
+def update(request, course_uid: str) -> HttpResponseRedirect:
     validation_results = validate(
         request,
         {
@@ -106,7 +106,7 @@ def update(request, course_uid):
 
 
 @require_POST
-def destroy(request, course_uid):
+def destroy(request, course_uid) -> HttpResponseRedirect:
     Course.nodes.get(uid=course_uid).delete()
 
     return redirect_back(request)
