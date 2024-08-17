@@ -57,7 +57,7 @@ def validate_unique_node_attribute(
             all_nodes,
         )
     ):
-        raise ValidationError({attribute: f"must be unique"})
+        raise ValidationError({attribute: "must be unique"})
 
 
 def redirect_back(request) -> HttpResponseRedirect:

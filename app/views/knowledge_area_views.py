@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template import loader
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from inertia import inertia
@@ -33,7 +33,7 @@ from app.models import (
 
 @inertia("KnowledgeArea/Form")
 @require_GET
-def knowledge_areas_list(request):
+def knowledge_areas_list(request) -> dict[str, any]:
     request_filter = request.GET.get("filter", "")
 
     knowledge_areas = (
@@ -57,7 +57,7 @@ def knowledge_areas_list(request):
 
 
 @require_GET
-def get_topics(request, knowledge_area_uid):
+def get_topics(request, knowledge_area_uid: str) -> JsonResponse:
     return JsonResponse(
         get_nodes_with_relationships(
             Topic,
@@ -73,7 +73,7 @@ def get_topics(request, knowledge_area_uid):
 
 
 @require_POST
-def store(request):
+def store(request) -> HttpResponseRedirect:
     validation_results = validate(
         request,
         {
@@ -94,7 +94,7 @@ def store(request):
 
 
 @require_POST
-def update(request, knowledge_area_uid):
+def update(request, knowledge_area_uid: str) -> HttpResponseRedirect:
     validation_results = validate(
         request,
         {
@@ -118,7 +118,7 @@ def update(request, knowledge_area_uid):
 
 
 @require_POST
-def destroy(request, knowledge_area_uid):
+def destroy(request, knowledge_area_uid: str) -> HttpResponseRedirect:
     KnowledgeArea.nodes.get(uid=knowledge_area_uid).delete()
 
     return redirect_back(request)

@@ -172,6 +172,43 @@ class CourseViewsTestCase(InertiaTestCase):
         self.assertEquals(courses[0].title, "foo")
         self.assertEquals(courses[0].number, 456)
 
+    def test_update_course_validation(self):
+        create_and_login_test_superuser(self, client="inertia")
+
+        courses = create_courses(3)
+
+        course = courses[0]
+
+        response = self.inertia.post(
+            reverse("app:courses.update", args=[course.uid]),
+            json.dumps({"number": None, "title": None}),
+            content_type="application/json",
+        )
+        self.assertEquals(
+            response.client.session["errors"],
+            {"number": ["is required"], "title": ["is required"]},
+        )
+
+        response = self.inertia.post(
+            reverse("app:courses.update", args=[course.uid]),
+            json.dumps({"number": course.number,"title": "foo" }),
+            content_type="application/json",
+        )
+        self.assertEquals(
+            response.client.session.get("errors"),
+            None,
+        )
+
+        response = self.inertia.post(
+            reverse("app:courses.update", args=[course.uid]),
+            json.dumps({"number": courses[1].number,"title": "foo" }),
+            content_type="application/json",
+        )
+        self.assertEquals(
+            response.client.session["errors"],
+            {"number": ["must be unique"]},
+        )
+
     def test_update_course(self):
         create_and_login_test_superuser(self, client="inertia")
 

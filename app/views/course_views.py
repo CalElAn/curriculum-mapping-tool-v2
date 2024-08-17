@@ -87,7 +87,7 @@ def update(request, course_uid: str) -> HttpResponseRedirect:
         request,
         {
             "number": "required|integer",
-            "title": "required",
+            "title": "required|string",
         },
     )
 
