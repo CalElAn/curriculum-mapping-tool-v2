@@ -17,9 +17,9 @@ def store(request):
     validate(
         request,
         {
-            "course_uid": "required",
-            "topic_uid": "required",
             "level": "required",
+            "tools": "required",
+            "comments": "required",
         },
     )
 
@@ -35,7 +35,7 @@ def store(request):
             courses_teaches_topics,
         )
     ):
-        raise ValidationError({"relationship": "Must be unique."})
+        raise ValidationError({"relationship": "must be unique"})
 
     teaches = Course.nodes.get(uid=request_course_uid).teaches.connect(
         Topic.nodes.get(uid=request_topic_uid),
@@ -59,6 +59,8 @@ def update(request, teaches_uid):
         request,
         {
             "level": "required",
+            "tools": "required",
+            "comments": "required",
         },
     )
 

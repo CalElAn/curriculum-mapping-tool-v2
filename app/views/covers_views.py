@@ -17,9 +17,9 @@ def store(request):
     validate(
         request,
         {
-            "topic_uid": "required",
-            "knowledge_area_uid": "required",
             "level": "required",
+            "tools": "required",
+            "comments": "required",
         },
     )
 
@@ -38,7 +38,7 @@ def store(request):
             knowledge_areas_covers_topics,
         )
     ):
-        raise ValidationError({"relationship": "Must be unique."})
+        raise ValidationError({"relationship": "must be unique"})
 
     covers = Topic.nodes.get(uid=request_topic_uid).covers.connect(
         KnowledgeArea.nodes.get(uid=request_knowledge_area_uid),
@@ -62,6 +62,8 @@ def update(request, covers_uid):
         request,
         {
             "level": "required",
+            "tools": "required",
+            "comments": "required",
         },
     )
 
