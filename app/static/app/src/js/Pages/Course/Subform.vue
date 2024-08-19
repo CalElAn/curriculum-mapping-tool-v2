@@ -11,7 +11,7 @@
     <textarea
       :readonly="!editing && !adding"
       rows="2"
-      placeholder="name"
+      placeholder="title"
       required
       class="input col-span-full w-full"
       type="text"

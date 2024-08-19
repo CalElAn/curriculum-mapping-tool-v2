@@ -83,7 +83,7 @@ class Course(StructuredNode):
 
 class Topic(StructuredNode):
     uid = StringProperty(unique_index=True, default=uuid4)
-    name = StringProperty(unique_index=True)
+    title = StringProperty(unique_index=True)
     covers = RelationshipTo(
         "KnowledgeArea", "COVERS", cardinality=ZeroOrMore, model=Covers
     )

@@ -27,7 +27,7 @@
       <tbody>
         <tr v-for="topic in topics" class="tbody">
           <td class="td p-2">
-            {{ topic.name }}
+            {{ topic.title }}
           </td>
           <td
             v-for="knowledgeArea in knowledgeAreas"

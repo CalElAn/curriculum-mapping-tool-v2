@@ -7,12 +7,12 @@ services:
       dockerfile: Dockerfile
     container_name: python
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - .:/usr/src/app
     networks:
       - cmt-v2
-      - curriculum-mapping-tool_sail
+#      - curriculum-mapping-tool_sail
     working_dir: /usr/src/app
     command: python manage.py runserver 0.0.0.0:8000
 
@@ -27,7 +27,7 @@ services:
     container_name: mysql
     image: mysql:8.0
     ports:
-      - 3330:3306
+      - "3330:3306"
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_DATABASE: '${DB_DATABASE}'
@@ -50,23 +50,70 @@ services:
       container_name: npm
       image: node:20
       ports:
-        - 3000:3000
+        - "3000:3000"
       volumes:
           - .:/home/node/curriculum-mapping-tool
       working_dir: /home/node/curriculum-mapping-tool/app
       user: 'node'
       networks:
         - cmt-v2
-#      tty: true
       command: npm run dev
+
+  neo4j:
+    container_name: cmt-v2-neo4j
+    image: neo4j:5
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_DB_PASSWORD}
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+    volumes:
+      - cmt-v2-neo4j-data:/data
+      - cmt-v2-neo4j-logs:/logs
+      - cmt-v2-neo4j-import:/var/lib/neo4j/import
+      - cmt-v2-neo4j-plugins:/plugins
+    networks:
+      - cmt-v2
+
+  # Ideally we should have only one neo4j container with different databases, but the community version can only have one database.
+  # Therefore, we have to create another container to house the test database.
+  neo4j-test:
+    container_name: cmt-v2-neo4j-test
+    image: neo4j:5
+    ports:
+      - "8474:7474"
+      - "8687:7687"
+    environment:
+      - NEO4J_AUTH=none
+    volumes:
+      - cmt-v2-neo4j-test-data:/data
+      - cmt-v2-neo4j-test-logs:/logs
+    networks:
+      - cmt-v2
 
 networks:
   cmt-v2:
     driver: bridge
   #use own neo4j container later and remove this
-  curriculum-mapping-tool_sail:
-    external: true
+#  curriculum-mapping-tool_sail:
+#    external: true
 
 volumes:
   cmt-v2-mysql:
+    driver: local
+  cmt-v2-neo4j-data:
+    driver: local
+  cmt-v2-neo4j-logs:
+    driver: local
+  cmt-v2-neo4j-import:
+    driver: local
+  cmt-v2-neo4j-plugins:
+    driver: local
+  cmt-v2-neo4j-test-data:
+    driver: local
+  cmt-v2-neo4j-test-logs:
     driver: local

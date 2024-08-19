@@ -17,7 +17,7 @@
             v-for="topicHeader in topics"
             class="td p-2 text-center text-base"
           >
-            {{ topicHeader.name }}
+            {{ topicHeader.title }}
           </th>
         </tr>
       </thead>

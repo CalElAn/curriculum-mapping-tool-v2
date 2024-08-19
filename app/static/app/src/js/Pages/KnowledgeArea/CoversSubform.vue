@@ -11,7 +11,7 @@
     :adding="adding"
     :form="form"
     title="Topic"
-    :pillDivDisplay="`${topicName} | ${form.level}`"
+    :pillDivDisplay="`${topicTitle} | ${form.level}`"
     v-model:tools="form.tools"
     v-model:level="form.level"
     v-model:comments="form.comments"
@@ -24,7 +24,7 @@
     >
       <option value="" selected disabled>- select topic -</option>
       <option v-for="topic in allTopics" :value="topic.uid">
-        {{ topic.name }}
+        {{ topic.title }}
       </option>
     </select>
   </GenericRelationshipSubform>
@@ -63,7 +63,7 @@ const { form, adding, editing, store, update, destroy, uid } =
     "app:covers.destroy",
   );
 
-const topicName = computed(
-  () => allTopics.find((topic) => topic.uid === form.topic_uid)?.name,
+const topicTitle = computed(
+  () => allTopics.find((topic) => topic.uid === form.topic_uid)?.title,
 );
 </script>

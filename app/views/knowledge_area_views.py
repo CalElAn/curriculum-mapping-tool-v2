@@ -50,7 +50,7 @@ def knowledge_areas_list(request) -> dict[str, any]:
     return {
         "initialKnowledgeAreas": page_obj.object_list,
         "pageObj": get_page_obj_props(page_obj, paginator),
-        "allTopics": Topic.nodes.order_by("name").all(),
+        "allTopics": Topic.nodes.order_by("title").all(),
         "levels": list(relationship_levels.values()),
         "filter": request_filter,
     }
@@ -65,7 +65,7 @@ def get_topics(request, knowledge_area_uid: str) -> JsonResponse:
             KnowledgeArea,
             KnowledgeArea,
             knowledge_area_uid,
-            [[Topic, "name"]],
+            [[Topic, "title"]],
         ),
         safe=False,
         encoder=NeomodelAwareJsonEncoder,

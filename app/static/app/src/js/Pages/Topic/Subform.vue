@@ -3,11 +3,11 @@
     <textarea
       :readonly="!editing && !adding"
       rows="2"
-      placeholder="name"
+      placeholder="title"
       required
       class="input col-span-full w-full"
       type="text"
-      v-model="form.name"
+      v-model="form.title"
     ></textarea>
     <FormValidationErrors class="sm:col-span-full" :errors="form.errors" />
     <AllSubformButtons
@@ -106,7 +106,7 @@ const showCoversLoadingSpinner = ref(false);
 
 const formData = {
   uid: props.topic.uid,
-  name: props.topic.name,
+  title: props.topic.title,
 };
 
 const emit = defineEmits(emittedEvents);

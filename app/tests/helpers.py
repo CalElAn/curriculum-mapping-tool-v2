@@ -23,10 +23,14 @@ def client_get(test_case_instance: InertiaTestCase | TestCase, url: str) -> any:
     return test_case_instance.props()
 
 
-def create_and_login_test_user(test_case_instance: InertiaTestCase | TestCase):
+def create_and_login_test_user(
+    test_case_instance: InertiaTestCase | TestCase, client="client"
+):
     User.objects.create_user(username="test user", password="12345")
 
-    test_case_instance.client.login(username="test user", password="12345")
+    getattr(test_case_instance, client).login(
+        username="test user", password="12345"
+    )
 
 
 def create_and_login_test_superuser(
@@ -37,7 +41,6 @@ def create_and_login_test_superuser(
     getattr(test_case_instance, client).login(
         username="test superuser", password="12345"
     )
-    # test_case_instance.inertia.login(username="test superuser", password="12345")
 
 
 def create_courses(number_to_create: int) -> list[Course]:
@@ -53,12 +56,12 @@ def create_courses(number_to_create: int) -> list[Course]:
 
 
 def create_topics(number_to_create: int) -> list[Topic]:
-    topic_names = fake.words(nb=number_to_create)
+    topic_titles = fake.words(nb=number_to_create)
 
     topics = []
 
-    for i, topic_name in enumerate(topic_names):
-        topic = Topic(name=topic_name).save()
+    for i, topic_title in enumerate(topic_titles):
+        topic = Topic(title=topic_title).save()
         topics.append(topic)
 
     return topics

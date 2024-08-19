@@ -36,7 +36,7 @@ from app.models import (
 def topics_list(request):
     request_filter = request.GET.get("filter", "")
 
-    topics = Topic.nodes.filter(name__icontains=request_filter).order_by("name").all()
+    topics = Topic.nodes.filter(title__icontains=request_filter).order_by("title").all()
 
     paginator, page_obj = paginate(topics, request.GET.get("page", 1))
 
@@ -77,11 +77,11 @@ def store(request):
     validation_results = validate(
         request,
         {
-            "name": "required",
+            "title": "required",
         },
     )
 
-    validate_unique_node_attribute(Topic, "name", request.body_json["name"])
+    validate_unique_node_attribute(Topic, "title", request.body_json["title"])
 
     topic = Topic(**{key: request.body_json[key] for key in validation_results}).save()
 
@@ -95,13 +95,13 @@ def update(request, topic_uid):
     validation_results = validate(
         request,
         {
-            "name": "required",
+            "title": "required",
         },
     )
 
     topic = Topic.nodes.get(uid=topic_uid)
 
-    validate_unique_node_attribute(Topic, "name", request.body_json["name"], topic)
+    validate_unique_node_attribute(Topic, "title", request.body_json["title"], topic)
 
     for key in validation_results:
         setattr(topic, key, request.body_json[key])

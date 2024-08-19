@@ -157,6 +157,17 @@ class CourseViewsTestCase(InertiaTestCase):
             {"number": ["is required"], "title": ["is required"]},
         )
 
+        Course(number=123).save()
+        response = self.inertia.post(
+            reverse("app:courses.store"),
+            json.dumps({"number": 123, "title": "foo"}),
+            content_type="application/json",
+        )
+        self.assertEquals(
+            response.client.session["errors"],
+            {"number": ["must be unique"]},
+        )
+
     def test_create_course(self):
         create_and_login_test_superuser(self, client="inertia")
 

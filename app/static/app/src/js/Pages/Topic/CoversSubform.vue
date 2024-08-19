@@ -11,7 +11,7 @@
     :adding="adding"
     :form="form"
     title="Topic"
-    :pillDivDisplay="`${knowledgeAreaName} | ${form.level}`"
+    :pillDivDisplay="`${knowledgeAreaTitle} | ${form.level}`"
     :showTools="false"
     v-model:level="form.level"
     v-model:comments="form.comments"
@@ -65,7 +65,7 @@ const { form, adding, editing, store, update, destroy, uid } = useSubformHelpers
   'app:covers.destroy',
 );
 
-const knowledgeAreaName = computed(
+const knowledgeAreaTitle = computed(
   () =>
     allKnowledgeAreas.find(
       (knowledgeArea) => knowledgeArea.uid === form.knowledge_area_uid,

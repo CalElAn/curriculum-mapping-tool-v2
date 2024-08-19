@@ -26,7 +26,7 @@ from app.models import (
 def view_courses_and_topics_matrix(request):
     return {
         "courses": Course.nodes.order_by("number").all(),
-        "topics": Topic.nodes.order_by("name").all(),
+        "topics": Topic.nodes.order_by("title").all(),
         "coursesTeachesTopics": get_nodes_with_relationships(Course, Teaches, Topic),
     }
 
@@ -35,7 +35,7 @@ def view_courses_and_topics_matrix(request):
 @require_GET
 def view_topics_and_knowledge_areas_matrix(request):
     return {
-        "topics": Topic.nodes.order_by("name").all(),
+        "topics": Topic.nodes.order_by("title").all(),
         "knowledgeAreas": KnowledgeArea.nodes.order_by("title").all(),
         "topicsCoversKnowledgeAreas": get_nodes_with_relationships(
             Topic, Covers, KnowledgeArea

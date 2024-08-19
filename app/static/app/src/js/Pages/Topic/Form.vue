@@ -78,7 +78,7 @@ const filter = ref(props.filter);
 
 const newTopic = {
   uid: null,
-  name: null,
+  title: null,
 };
 
 const { subformItems, shouldAllowAdd, add, onCancelAdd, onDestroyed } =

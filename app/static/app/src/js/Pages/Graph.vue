@@ -90,8 +90,8 @@ nodes.push(
 nodes.push(
   ...props.topics.map((topic) => ({
     id: topic.uid,
-    label: truncateText(topic.name),
-    title: `Topic\nName: ${topic.name}`,
+    label: truncateText(topic.title),
+    title: `Topic\nTitle: ${topic.title}`,
     font: { size: 16 },
     widthConstraint: { minimum: 60, maximum: 70 },
     heightConstraint: { minimum: 60, maximum: 70 },
