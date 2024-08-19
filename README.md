@@ -16,6 +16,9 @@ Curriculum mapping is the process of associating course-level learning outcomes 
 
 Frontend code is located in `static/app/src/`
 
+## Backend
+- [Django](https://www.djangoproject.com/)
+
 ## Database
 - [Neo4j](https://neo4j.com/)
 - [neomodel](https://github.com/neo4j-contrib/neomodel)
@@ -54,5 +57,17 @@ To run tests, execute:
 
 `docker compose exec python bash -c "python ./manage.py test app.tests"`
 
-## Contact
+## Contributing
+Contributions are welcome! To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+## Support
 For any questions or feedback, feel free to contact
+
+## ToDo
+Tests for helpers, middleware and cypher queries
