@@ -2,31 +2,18 @@ import json
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.test import TestCase, override_settings, Client
+from django.test import Client, TestCase, override_settings
+from django.urls import reverse
 from inertia.test import InertiaTestCase
+from neomodel import DoesNotExist, clear_neo4j_database, config, db
 
 from app.cypher_queries import get_nodes_with_relationships
-from app.helpers import get_env, items_per_page, NeomodelAwareJsonEncoder
-from django.urls import reverse
-from neomodel import db, config, clear_neo4j_database, DoesNotExist
-
-from app.models import (
-    relationship_levels,
-    Course,
-    KnowledgeArea,
-    Topic,
-    Covers,
-    Teaches,
-)
-from app.tests.helpers import (
-    create_and_login_test_user,
-    create_courses,
-    create_topics,
-    client_get,
-    create_and_login_test_superuser,
-    set_up,
-    create_knowledge_areas,
-)
+from app.helpers import NeomodelAwareJsonEncoder, get_env, items_per_page
+from app.models import (Course, Covers, KnowledgeArea, Teaches, Topic,
+                        relationship_levels)
+from app.tests.helpers import (client_get, create_and_login_test_superuser,
+                               create_and_login_test_user, create_courses,
+                               create_knowledge_areas, create_topics, set_up)
 
 
 class GraphViewsTestCase(InertiaTestCase):

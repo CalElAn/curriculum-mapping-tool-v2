@@ -1,14 +1,14 @@
+import os
 from pathlib import Path
 
+import environ
 from django.core.exceptions import ValidationError
-from django.core.paginator import Paginator, Page
-from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.core.paginator import Page, Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django_rulebase import Validator
 from inertia.utils import InertiaJsonEncoder
-from django.db.models.fields.files import ImageFieldFile
 from neomodel import StructuredNode, StructuredRel
-import environ, os
 
 items_per_page = 7
 

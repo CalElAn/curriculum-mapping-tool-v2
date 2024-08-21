@@ -1,15 +1,10 @@
-from datetime import datetime
-
 from django.core.exceptions import ValidationError
 from django.views.decorators.http import require_POST
 
-from app.cypher_queries import (
-    get_nodes_with_relationships,
-    get_relationship,
-    delete_relationship,
-)
-from app.helpers import validate, redirect_back
-from app.models import Course, Topic, Teaches, KnowledgeArea, Covers
+from app.cypher_queries import (delete_relationship,
+                                get_nodes_with_relationships, get_relationship)
+from app.helpers import redirect_back, validate
+from app.models import Covers, KnowledgeArea, Topic
 
 
 @require_POST

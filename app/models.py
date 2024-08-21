@@ -1,18 +1,10 @@
 from datetime import datetime
 from uuid import uuid4
 
-from django.db import models
-from neomodel import (
-    StructuredNode as NeoModelStructuredNode,
-    StringProperty,
-    DateTimeNeo4jFormatProperty,
-    IntegerProperty,
-    RelationshipTo,
-    StructuredRel as NeoModelStructuredRel,
-    ZeroOrMore,
-    OneOrMore,
-    ZeroOrOne,
-)
+from neomodel import (DateTimeNeo4jFormatProperty, IntegerProperty, RelationshipTo, StringProperty)
+from neomodel import StructuredNode as NeoModelStructuredNode
+from neomodel import StructuredRel as NeoModelStructuredRel
+from neomodel import ZeroOrMore
 
 relationship_levels = {
     "beginner": "beginner",

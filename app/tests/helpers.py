@@ -1,12 +1,12 @@
-from django.test import TestCase
-from inertia.test import InertiaTestCase
-from django.contrib.auth.models import User
-from faker import Faker
-from neomodel import config, db
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.test import TestCase
+from faker import Faker
+from inertia.test import InertiaTestCase
+from neomodel import config, db
 
 from app.helpers import get_env
-from app.models import Course, Topic, KnowledgeArea
+from app.models import Course, KnowledgeArea, Topic
 
 fake = Faker()
 

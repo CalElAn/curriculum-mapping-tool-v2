@@ -1,23 +1,13 @@
 import json
 
-from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
-from django.test import TestCase, override_settings, Client
-from inertia.test import InertiaTestCase
-from app.helpers import get_env, items_per_page, NeomodelAwareJsonEncoder
 from django.urls import reverse
-from neomodel import db, config, clear_neo4j_database, DoesNotExist
+from inertia.test import InertiaTestCase
+from neomodel import DoesNotExist
 
-from app.models import relationship_levels, Course, KnowledgeArea
-from app.tests.helpers import (
-    create_and_login_test_user,
-    create_courses,
-    create_topics,
-    client_get,
-    create_and_login_test_superuser,
-    set_up,
-    create_knowledge_areas,
-)
+from app.helpers import items_per_page
+from app.models import KnowledgeArea, relationship_levels
+from app.tests.helpers import (client_get, create_and_login_test_superuser,
+                               create_and_login_test_user, create_knowledge_areas, create_topics, set_up)
 
 
 class KnowledgeAreaViewsTestCase(InertiaTestCase):

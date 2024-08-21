@@ -1,5 +1,4 @@
 import json
-from pprint import pprint
 
 from django.core.exceptions import ValidationError
 from django.http import JsonResponse

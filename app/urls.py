@@ -1,8 +1,9 @@
-from django.urls import path, reverse, reverse_lazy
+from django.urls import path, reverse_lazy
 from django.views.generic import RedirectView
 
-from .views import course_views, graph_views, teaches_views, topic_views, covers_views, \
-    knowledge_area_views, matrix_views
+from .views import (course_views, covers_views, graph_views,
+                    knowledge_area_views, matrix_views, teaches_views,
+                    topic_views)
 
 app_name = "app"
 urlpatterns = [

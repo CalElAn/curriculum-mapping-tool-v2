@@ -79,5 +79,5 @@ Contributions are welcome! To contribute, follow these steps:
 For any questions or feedback, feel free to contact
 
 ## ToDo
-Tests for helpers, middleware and cypher queries
-Text search for the graph
+1. Tests for helpers, middleware and cypher queries
+2. Text search for the graph

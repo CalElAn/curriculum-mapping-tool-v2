@@ -1,6 +1,6 @@
-from typing import Type, Union, List
+from typing import Type, Union
 
-from neomodel import db, StructuredNode, StructuredRel
+from neomodel import StructuredNode, StructuredRel, db
 
 
 def get_nodes_with_relationships(
