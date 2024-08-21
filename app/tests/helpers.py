@@ -3,6 +3,7 @@ from inertia.test import InertiaTestCase
 from django.contrib.auth.models import User
 from faker import Faker
 from neomodel import config, db
+from django.conf import settings
 
 from app.helpers import get_env
 from app.models import Course, Topic, KnowledgeArea
@@ -12,7 +13,7 @@ fake = Faker()
 
 def set_up(inertia_test_case: type[InertiaTestCase], test_case: InertiaTestCase):
     inertia_test_case.setUp(test_case)
-    config.DATABASE_URL = get_env()("TEST_NEOMODEL_NEO4J_BOLT_URL")
+    config.DATABASE_URL = settings.TEST_NEOMODEL_NEO4J_BOLT_URL
     # print('ALL ITEMS IN DB ===',db.cypher_query('MATCH (n) RETURN n'))
     db.cypher_query("MATCH (n) DETACH DELETE n")
 

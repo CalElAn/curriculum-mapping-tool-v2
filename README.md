@@ -26,6 +26,15 @@ Frontend code is located in `static/app/src/`
 
 Graph nodes and relationships are defined in `app/models.py`
 
+## Seeding the Neo4j database
+Open seeder.ipynb located in neo4j_db_seeder. 
+
+Edit the password and username in the last but one cell. 
+
+Run all the cells. 
+
+You might want to comment this line `driver.execute_query(create_knowledge_areas_query, database_="neo4j")` in a production environment
+
 ## Development
 ```
 git clone https://github.com/CalElAn/curriculum-mapping-tool-v2.git
@@ -71,3 +80,4 @@ For any questions or feedback, feel free to contact
 
 ## ToDo
 Tests for helpers, middleware and cypher queries
+Text search for the graph

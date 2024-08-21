@@ -142,6 +142,7 @@ JS_ROUTES_INCLUSION_LIST = [
 ]
 
 NEOMODEL_NEO4J_BOLT_URL = env("NEOMODEL_NEO4J_BOLT_URL")
+TEST_NEOMODEL_NEO4J_BOLT_URL = env("TEST_NEOMODEL_NEO4J_BOLT_URL")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

@@ -1,0 +1,546 @@
+========== Project Information ==========
+
+
+Project Title,"Master of Data Science and Analytics"
+Faculty,"Science, Haskayne School of Business and Cumming School of Medicine"
+Program,"Master of Data Science and Analytics"
+Description,"A distinctive feature of the MDSA is the ability of students to complete it on a part-time basis, and to ladder into it through the Graduate Certificate in Fundamental Data Science and Analytics and/or the Graduate Diploma in Data Science and Analytics. Students who complete the Graduate Certificate and who are subsequently accepted into the MDSA will receive 12 units of advanced credit towards the master’s degree. Students who complete the Graduate Diploma program and who are subsequently accepted into the MDSA will receive 24 units of advanced credit towards the master’s."
+
+
+
+
+========== Project Administrators ==========
+
+
+"pdyjur@ucalgary.ca"
+"ualim@ucalgary.ca"
+"jbstall@ucalgary.ca"
+"aswish@ucalgary.ca"
+"mgreenbe@ucalgary.ca"
+"lewu@ucalgary.ca"
+"pierre.kennepohl@ucalgary.ca"
+
+
+
+
+========== Program-level Learning Outcomes ==========
+
+
+,Title,Description
+
+Category,"Certificate Learning Outcomes"
+1,"Data Organization","Understand, compare, and utilize a variety of different data organization strategies, data types, and storage formats."
+2,"Data","Employ methods to collect, store, and retrieve data in various formats."
+3,"Explore Visualization","Explore data with visualization and analysis tools to build understanding and gain insights."
+4,"Design Visualizations","Interpret, critique, and deconstruct existing data visualizations as well as design and implement new interactive visualizations."
+5,"Research Questions","Formulate new research questions and identify appropriate analysis techniques when confronted with new data or challenges."
+6,"Python and R","Programmatically manipulate, process, reformat, and perform analyses on real, complex data sets using common languages like Python and R."
+7,"Apply Techniques","Apply appropriate computational, mathematical, or statistical techniques and models to address data-driven inquiries."
+8,"Store Large Datasets","Store and process large datasets in parallel using cloud platforms and parallel data processing techniques."
+9,"Write Code","Write efficient and well-documented code to further enhance the data analytics process."
+10,"Communicate to Diverse Audience","Clearly communicate concepts, analytic findings, and results in both written and oral form to a diverse audience."
+11,"Collaborative Work","Effectively and respectfully function within a collaborative working environment."
+12,"Ethics and Privacy Issues","Consider ethics and privacy issues related to data collection, use, and presentation."
+
+
+,Title,Description
+
+Category,"Diploma Learning Outcomes"
+13,"Complex Problems","Identify opportunities and describe complex unstructured problems."
+14,"Analyze Data","Evaluate and analyze real-world data with the use of advanced computer models to extract valuable information."
+15,"Think Critically","Think critically about the implications of big data."
+16,"Advanced Data Science","Understand advanced data science and analytics methods and tools."
+17,"Practical Settings","Apply appropriate concepts and methods of data science and analytics to practical settings."
+18,"Translate Big Data","Translate big data into (statistical) models."
+19,"Make Predictions","Make predictions and/or clusters with the use of machine learning algorithms and techniques."
+20,"Decision-making","Understand and apply decision-making paradigms."
+
+
+,Title,Description
+
+Category,"Master's Learning Outcomes"
+21,"Work Setting or Supervised","Integrate and apply professional and technical knowledge and skills relating to data science and analytics, either in a work setting or solving a realistic problem under supervision."
+
+
+
+
+========== Courses ==========
+
+
+Code,Number,Year,Semester,Section,Assigned to
+
+
+"DATA","601",,,,"kmsaito@ucalgary.ca"
+"DATA","602",,,,"kmsaito@ucalgary.ca"
+"DATA","603",,,,"kmsaito@ucalgary.ca"
+"DATA","604",,,,"kmsaito@ucalgary.ca"
+"DATA","605",,,,"kmsaito@ucalgary.ca"
+"DATA","606",,,,"kmsaito@ucalgary.ca"
+"DATA","607",,,,"kmsaito@ucalgary.ca"
+"DATA","608",,,,"kmsaito@ucalgary.ca"
+"DATA","611",,,,"kmsaito@ucalgary.ca"
+"DATA","612",,,,"kmsaito@ucalgary.ca"
+"DATA","613",,,,"kmsaito@ucalgary.ca"
+"DATA","614",,,,"kmsaito@ucalgary.ca"
+"DATA","621",,,,"kmsaito@ucalgary.ca"
+"DATA","623",,,,"kmsaito@ucalgary.ca"
+"DATA","622",,,,"kmsaito@ucalgary.ca"
+"DATA","624",,,,"kmsaito@ucalgary.ca"
+"DATA","691",,,,"kmsaito@ucalgary.ca"
+"DATA","693",,,,"kmsaito@ucalgary.ca"
+"DATA","695",,,,"pdyjur@ucalgary.ca"
+
+
+
+
+========== Mapping Scale ==========
+
+
+Title,Abbreviation,Description
+"Yes","Y","The course outcome is aligned with the program-level learning outcome."
+
+
+
+
+========== Course Summaries ==========
+
+
+"---------- Course: DATA 601   Working with Data and Visualization ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Use programmatic tools and suitable programming paradigms to clean and transform data into a format suitable for subsequent analytics"
+Course Outcome 2,"Use existing software libraries to summarize and aggregate structured data"
+Course Outcome 3,"Use existing software libraries to explore data and create informative and engaging data visualizations"
+Course Outcome 4,"Present data stories in an interactive and collaborative data science environment"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 602   Statistical Data Analysis ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Apply various laws of probability to solve practical problems"
+Course Outcome 2,"Differentiate between probability models and their applications"
+Course Outcome 3,"Visualize data (univariate) that is both categorical and numerical"
+Course Outcome 4,"Carry out various manipulations of data to create deeper data visualizations"
+Course Outcome 5,"Employ both simulation and conventional methods to create confidence intervals"
+Course Outcome 6,"Employ hypothesis testing to create and critique a statistical claim"
+Course Outcome 7,"Investigate the synergy between two variables by using data visualization and various statistical tools"
+Course Outcome 8,"Create a statistical model and evaluate its statistical feasibility"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 3,Y,Y,Y,Y,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 4,Y,Y,Y,Y,Y,Y,Y,N/A,Y,Y,Y,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,Y,Y,Y,Y,Y,N/A,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,Y,N/A,Y,Y,
+Course Outcome 6,N/A,N/A,Y,Y,Y,N/A,Y,N/A,N/A,Y,Y,Y,Y,Y,Y,Y,Y,Y,N/A,Y,Y,
+Course Outcome 7,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,
+Course Outcome 8,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,
+
+
+
+
+"---------- Course: DATA 603   Statistical Modeling with Data ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Use statistical software R to model the multiple linear relationship between a response variable (Y) and all explanatory variables (both categorical and numerical variable) with interaction terms. Interpret model parameter estimates, construct confidence intervals for regression coefficients, evaluate model fits by (R2adj and RMSE). Once the fitted model exists, predict the response variable at a certain level of the explanatory variables."
+Course Outcome 2,"Visualize correlations between a response variable (Y) and all explanatory variables (X) by graphs (scatter plot, residual plot) to assess model validity. Check the multi -linearity problem of a MLR model, check all assumptions by residual plots and statistical tests (testing for non constant variance, testing for normality) and outliers."
+Course Outcome 3,"Be able to use Stepwise/Forward/Backward variable selection procedures to identify the most significant subset of predictor variables that contribute to the explanation of the variation Y."
+Course Outcome 4,"Apply transformations (logarithmic transformations, power functions) to some/all of the response variable and the predictor variables to create a better model."
+Course Outcome 5,"Use open data set to build the best fitted model, participate in group to report for a research project. Deliver professional presentations and discuss group research project results with the entire class."
+Course Outcome 6,"Use R software to model the logistic regression for a binary response variable with a set of independent variables (both categorical and numerical variable), interpret model parameter estimates in terms of odd ratio, construct confidence intervals for logistic regression coefficients. Predict the probability of response variable P(Y=1|X) at a certain level of the explanatory variables"
+Course Outcome 7,"Visualize correlations between a response variable (Y) and all explanatory variables (X) by graphs. Check all necessary assumptions by residual plots, multicollinearity and outliers."
+Course Outcome 8,"Be able to locate different in methods of sampling from population and definitions of Design of Experiment"
+Course Outcome 9,"Apply the methods to test for difference in averages between levels for one factor design (complete randomized design), block design, two factor factorial design and nested design, use pairwise comparison procedures for comparing in pairs to determine which means are different from others, discuss the output in class and make conclusions."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,Y,Y,N/A,N/A,Y,Y,Y,N/A,Y,
+Course Outcome 2,N/A,N/A,Y,Y,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 4,N/A,N/A,Y,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,Y,Y,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,Y,
+Course Outcome 6,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,Y,Y,N/A,Y,
+Course Outcome 7,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 8,Y,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 9,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 604   Working with Data At Scale ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Data management SQL Based"
+Course Outcome 2,"Data Management NoSQL"
+Course Outcome 3,"Data Mining Data Analysis"
+Course Outcome 4,"Network based Data Analysis"
+Course Outcome 5,"Hadoop Based Data Management"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,Y,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 2,Y,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,Y,
+Course Outcome 3,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,Y,
+Course Outcome 4,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,Y,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 605   Actionable Visualization and Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Visualization Types. Students should be aware of a variety of specific domain areas in information visualization such as text visualization, tree and network visualization, maps, multidimensional data visualization, physical visualization, and casual/personal visualization."
+Course Outcome 2,"Visualization Assessment. Students should be able to interpret, critique, and deconstruct visualizations created by others."
+Course Outcome 3,"Exploratory Data Analysis. Students should be able to conduct exploratory data analysis on real, complex data sets by creating new visualizations in  tools like Tableau and Jupyter."
+Course Outcome 4,"Presentation. Students should be able to create visual presentations of their analytic results, including dashboards, graphical reports, presentations, and stories."
+Course Outcome 5,"Data and Ethics. Students should be aware of the ethical implications of data collection and analytics. Students should be able to identify problematic data collection and experimentation practices, anonymize datasets, and describe good data security practices."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,Y,Y,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,Y,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 606   Statistical Methods in Data Science ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Students finishing this course successfully are expected to have learned when the following methods may be applied, how to apply them, and how to properly interpret the results: Design of surveys and data collection."
+Course Outcome 2,"Multi-way contingency tables"
+Course Outcome 3,"Generalized linear models for discrete data"
+Course Outcome 4,"Logistic regression for binary responses"
+Course Outcome 5,"Multi-category logic models for nominal and ordinal responses"
+Course Outcome 6,"Log-linear models"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,
+Course Outcome 6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,
+
+
+
+
+"---------- Course: DATA 607   Statistical and Machine Learning ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Appreciate the applicability of machine learning techniques to analysis of large data sets"
+Course Outcome 2,"Understand the distinction between classification and regression"
+Course Outcome 3,"Understand the difference between supervised and unsupervised techniques"
+Course Outcome 4,"Appreciate the bias-variance tradeoff. Identify underfitting/ overfitting"
+Course Outcome 5,"Familiarity with the fundamentals of model selection and model evaluation. Appreciate the role played by cross-validation."
+Course Outcome 6,"Accrue hands-on experience with popular Python libraries for data analysis and machine learning (e.g. numpy, scikit-learn, pandas)"
+Course Outcome 7,"Apply knowledge to analyze a real-world data-set. Clearly communicate results of the analysis through a written report and a presentation."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,
+Course Outcome 6,Y,Y,Y,N/A,N/A,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,Y,N/A,Y,
+Course Outcome 7,Y,Y,Y,N/A,Y,Y,Y,N/A,Y,Y,N/A,N/A,Y,Y,N/A,Y,Y,N/A,Y,N/A,Y,
+
+
+
+
+"---------- Course: DATA 608   Developing Big Data Applications ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Write basic multithreaded programs in python to solve embarrassingly parallel problems."
+Course Outcome 2,"Understand how to use synchronization primitives to address common concurrent programming issues, such as race conditions and deadlocks."
+Course Outcome 3,"Understand basic concepts of distributed and cloud computing"
+Course Outcome 4,"Hands-on experience with big-data processing platform (e.g., Spark)"
+Course Outcome 5,"Design and implement simple MapReduce algorithms for big-data problems"
+Course Outcome 6,"Perform exploratory analysis on and apply statistical and machine learning techniques to large datasets."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 4,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 6,Y,N/A,Y,N/A,Y,Y,Y,Y,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,Y,Y,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 611   Predictive Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Define and formulate predictive analytics tasks to support decision-making in complex business environment."
+Course Outcome 2,"Determine the steps to successfully develop and deploy a predictive model."
+Course Outcome 3,"Apply different predictive models and machine learning techniques such as decision trees, classification rule, associate rules, clustering, support vector machines and instance-based learning to different practical applications."
+Course Outcome 4,"Describe the advantages and disadvantage of using different techniques."
+Course Outcome 5,"Evaluate and compare the performance of different predictive models."
+Course Outcome 6,"Create effective visualizations to communicate the results of their analysis."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 6,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 612   Decision Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Build optimization models based upon deterministic data to solve business problems that may be both single and multi objective"
+Course Outcome 2,"Adapt models to incorporate uncertainty and incorporate monte-carlo simulation techniques"
+Course Outcome 3,"Formulate models from an ill-defined, ambiguous managerial problems through the use of business cases and problems from industry"
+Course Outcome 4,"Implement scalable models in a spreadsheet, employing spreadsheet engineering techniques to reduce or eliminate spreadsheet errors and improve usability"
+Course Outcome 5,"Analyze the model appropriately under various scenarios to gain business insights and prescribe decisions based upon thresholds of certainty."
+Course Outcome 6,"Adapt and design spreadsheet models with VBA (visual basic for applications) so as to incorporate uncertainty, live data, external datasets, and to improve the usability of the model for users."
+Course Outcome 7,"Present and communicate results of analyses effectively and persuasively to technical and non-technical audiences"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,
+Course Outcome 6,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,
+Course Outcome 7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 613   Introductory Data Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Pose interesting questions that can be investigated with data"
+Course Outcome 2,"Formulate questions as hypothesis tests"
+Course Outcome 3,"Collect data to test hypotheses (web scraping and using APIs)"
+Course Outcome 4,"Test hypotheses and create regression models"
+Course Outcome 5,"Explain how various probability concepts and statistical tools are used in analytics"
+Course Outcome 6,"Create reproducible reports and analyses"
+Course Outcome 7,"Use visualization tools to convey findings to an audience"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 2,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,
+Course Outcome 3,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,Y,
+Course Outcome 4,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,N/A,Y,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,Y,
+Course Outcome 6,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 7,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 614   Advanced Data Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Identify and explain the steps of a data analytics project."
+Course Outcome 2,"Recognize and describe the different classes of data analytics tools and techniques, and their applications"
+Course Outcome 3,"Debate, evaluate, and select appropriate analytic tools for solving ill-defined business problems"
+Course Outcome 4,"Implement various data analytics tools to different types of business problems in R (programming language) using basic technical knowledge and online resources"
+Course Outcome 5,"Identify the analytics problems and needs of today's businesses; construct rough action plans including data preparation/gathering, analysis, and solution formation; and present the solutions"
+Course Outcome 6,"Demonstrate their soft skills (leadership, teamwork, written and oral communication, presentation) in the context of business analytics projects"
+Course Outcome 7,"Analyse the ethics, biases, and privacy implications of data analytics practices"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,Y,Y,N/A,Y,Y,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,Y,Y,N/A,Y,Y,Y,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,Y,Y,Y,Y,Y,Y,N/A,
+Course Outcome 5,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,Y,Y,Y,N/A,N/A,Y,
+Course Outcome 6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 621   Advanced Statistical Modeling ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Understand fundamental principles of statistical modeling and exploratory data analysis"
+Course Outcome 2,"Understand and translate the health research question/ data at hand into statistical modeling problems"
+Course Outcome 3,"Understand epidemiological concepts of confounding and effect modification and their identification in statistical models"
+Course Outcome 4,"Identify data type and granularity and apply the corresponding appropriate modeling technique"
+Course Outcome 5,"Understand and apply variable selection in modeling, and interpret model coefficients"
+Course Outcome 6,"Understand principles of causal inference"
+Course Outcome 7,"Interpret in health context of the problem the results from modeling"
+Course Outcome 8,"Train and evaluate models and check their assumptions on real health data.  Create reproducible code analysis."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,Y,N/A,Y,N/A,Y,Y,Y,N/A,Y,N/A,N/A,Y,N/A,N/A,Y,Y,Y,Y,N/A,N/A,Y,
+Course Outcome 2,Y,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,Y,Y,Y,N/A,Y,Y,Y,Y,Y,N/A,N/A,Y,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,
+Course Outcome 4,Y,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,
+Course Outcome 6,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,
+Course Outcome 7,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,Y,Y,
+Course Outcome 8,N/A,Y,Y,N/A,Y,Y,Y,N/A,Y,Y,Y,N/A,Y,Y,N/A,Y,Y,N/A,Y,Y,Y,
+
+
+
+
+"---------- Course: DATA 623   Big Data in Health ----------"
+
+[Course Outcomes]
+Course Outcome 1,"This statement represents course outcomes for 623"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,Y,Y,Y,N/A,Y,Y,N/A,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 622   Machine Learning for Precision Health ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Understand the fundamental concepts of machine learning"
+Course Outcome 2,"Understand the capabilities and limitations of machine learning in health problems"
+Course Outcome 3,"Understand various types of machine learning models and techniques"
+Course Outcome 4,"Select appropriate machine learning models for a given health problem"
+Course Outcome 5,"Train, evaluate, and deploy practical machine learning models using real health data"
+Course Outcome 6,"Handle different types of data for different machine learning models"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,
+Course Outcome 2,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,
+Course Outcome 4,N/A,N/A,Y,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,
+Course Outcome 5,Y,Y,Y,N/A,N/A,Y,Y,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,Y,Y,N/A,
+Course Outcome 6,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,N/A,N/A,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 624   Advanced Exploration & Visualization in Health ----------"
+
+[Course Outcomes]
+Course Outcome 1,"To prepare data for both exploratory and explanatory data visualizations"
+Course Outcome 2,"To communicate data-driven findings effectively"
+Course Outcome 3,"The strengths and weaknesses of several widely-used visualizations"
+Course Outcome 4,"To use Python, Tableau, and d3.js (and JavaScript) to create custom plots"
+Course Outcome 5,"How the type of data impacts the type of visualization/ choosing visuals"
+Course Outcome 6,"Tell stories with data to support data-driven decision making"
+Course Outcome 7,"To design and implement reflexive/ interactive visualizations to support temporal analysis, data comparison, and generative data visualization"
+Course Outcome 8,"The basics of visual variables and their applications in visual analytics"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,Y,Y,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,Y,
+Course Outcome 2,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,Y,Y,
+Course Outcome 3,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 4,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,
+Course Outcome 6,N/A,N/A,Y,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,Y,Y,Y,
+Course Outcome 7,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,Y,N/A,N/A,Y,Y,
+Course Outcome 8,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,
+
+
+
+
+"---------- Course: DATA 691   Integrated Topics in Data Science and Analytics ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Demonstration of concrete comprehension of applied statistical and computer science methods"
+Course Outcome 2,"Evolve algorithmic and visual thinking to real-world large-scale data"
+Course Outcome 3,"Comprehension of various stages of data science to get actionable insights"
+Course Outcome 4,"Identify legal, social, and ethical issues related to data collection and curation"
+Course Outcome 5,"Communication of insights"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,Y,Y,Y,Y,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,Y,Y,Y,Y,N/A,Y,
+Course Outcome 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,Y,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 5,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,
+
+
+
+
+"---------- Course: DATA 693   Professional Internship ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Apply knowledge and tools from the data science and analytics pipeline in the context of a specialized application domain."
+Course Outcome 2,"In consultations with domain experts, identify suitable data science and analytics problems from the internship domain, and develop a project plan to meet deliverables."
+Course Outcome 3,"Develop independent and critical thinking skills and foster intellectual integrity"
+Course Outcome 4,"Enhance professional conduct through interactions with domain experts and other stake holders."
+Course Outcome 5,"Analyze practices in the application domain and employ data storytelling to assist non-technical professionals in turning insights into actions."
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,N/A,N/A,N/A,Y,N/A,N/A,Y,N/A,N/A,N/A,Y,
+Course Outcome 2,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 5,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,
+
+
+
+
+"---------- Course: DATA 695   Research Internship ----------"
+
+[Course Outcomes]
+Course Outcome 1,"Growth of domain data science expertise through the deep comprehension of specialized data science tools"
+Course Outcome 2,"Build upon current knowledge course learning, continuing to work with domain experts to in the identification of advanced Data Science and Analytics problems within intern’s domain"
+Course Outcome 3,"Develop intellectual integrity and nurturement of critical thinking abilities"
+Course Outcome 4,"Demonstrate of professional "intangibles"  through interaction with non-technical domain experts"
+Course Outcome 5,"Synthesize domain-specific practices to develop data storytelling to assist non-Data Science professionals to convert findings into actionable outcomes"
+
+
+[Outcome Maps]
+,PLO 1,PLO 2,PLO 3,PLO 4,PLO 5,PLO 6,PLO 7,PLO 8,PLO 9,PLO 10,PLO 11,PLO 12,PLO 13,PLO 14,PLO 15,PLO 16,PLO 17,PLO 18,PLO 19,PLO 20,PLO 21,
+Course Outcome 1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,Y,N/A,Y,N/A,Y,Y,
+Course Outcome 2,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,Y,Y,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,
+Course Outcome 5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Y,N/A,N/A,N/A,N/A,Y,
+
+
+
+

@@ -14,6 +14,7 @@ services:
       - cmt-v2
 #      - curriculum-mapping-tool_sail
     working_dir: /usr/src/app
+    restart: on-failure
     command: python manage.py runserver 0.0.0.0:8000
 
   blackd:
