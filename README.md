@@ -1,5 +1,10 @@
 # Curriculum Mapping Tool
 
+<img width="975" height="496" alt="image" src="https://github.com/user-attachments/assets/c781a7a6-b075-472c-93a6-03fd3b9c3fc3" />
+
+<img width="975" height="500" alt="image" src="https://github.com/user-attachments/assets/265bd272-f8cb-4913-be00-8d62119d9f5c" />
+
+
 ## Introduction
 Curriculum mapping is the process of associating course-level learning outcomes with program-level learning outcomes. It is a practice routinely used by curriculum developers and reviewers to ensure that curricula are structured and organized strategically to meet program goals. This project will make use of a graph schema to organize curriculum data. Graph databases offer lots of flexibility in modelling complex structured and unstructured relationships between topics, courses and learning outcomes. Following the design of the scheme, curriculum data will be collected and stored in a graph database for subsequent retrieval and analysis. Graph visualizations and reporting tools will also be developed so that users can easily interact with and explore the data. 
 
